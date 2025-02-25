@@ -1,0 +1,12 @@
+E:\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.deps.json
+E:\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.dll
+E:\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.pdb
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.AssemblyReference.cache
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.GeneratedMSBuildEditorConfig.editorconfig
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfoInputs.cache
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfo.cs
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.CoreCompileInputs.cache
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.dll
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\refint\BuildingBlocks.dll
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.pdb
+E:\Capstone\src\BuildingBlocks\obj\Debug\net8.0\ref\BuildingBlocks.dll

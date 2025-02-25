@@ -1,0 +1,15 @@
+E:\Capstone\src\Capstone.Domain\bin\Debug\net8.0\Capstone.Domain.deps.json
+E:\Capstone\src\Capstone.Domain\bin\Debug\net8.0\Capstone.Domain.dll
+E:\Capstone\src\Capstone.Domain\bin\Debug\net8.0\Capstone.Domain.pdb
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.AssemblyInfoInputs.cache
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.AssemblyInfo.cs
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.csproj.CoreCompileInputs.cache
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.dll
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\refint\Capstone.Domain.dll
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.pdb
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\ref\Capstone.Domain.dll
+E:\Capstone\src\Capstone.Domain\bin\Debug\net8.0\BuildingBlocks.dll
+E:\Capstone\src\Capstone.Domain\bin\Debug\net8.0\BuildingBlocks.pdb
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.Domain.csproj.AssemblyReference.cache
+E:\Capstone\src\Capstone.Domain\obj\Debug\net8.0\Capstone.553C9E79.Up2Date
