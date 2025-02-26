@@ -197,6 +197,24 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentEmail.Core": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "FluentEmail.Razor": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "FluentEmail.Smtp": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -244,6 +262,9 @@
               },
               "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj": {
                 "projectPath": "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj"
+              },
+              "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
+                "projectPath": "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj"
               }
             }
           }
@@ -262,6 +283,18 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

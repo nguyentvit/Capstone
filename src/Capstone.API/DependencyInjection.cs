@@ -1,11 +1,14 @@
 using BuildingBlocks.Exceptions.Handler;
-using Carter;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Capstone.API;
 public static class DependencyInjection
 {
     public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddAuth(configuration);
+
         services.AddHttpContextAccessor();
 
         services.AddCors(options => {
@@ -31,5 +34,29 @@ public static class DependencyInjection
         app.UseExceptionHandler(options => {});
 
         return app;
+    }
+    private static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration configuration)
+    {
+        var environment = configuration["ASPNETCORE_ENVIRONMENT"];
+
+        if (environment == "Development")
+        {
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options => {
+                options.SaveToken = true;
+                options.Authority = "http://localhost:5036";
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+        }
+        
+        return services;
     }
 }

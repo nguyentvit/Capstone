@@ -15,3 +15,4 @@ E:\Capstone\src\Capstone.Application\bin\Debug\net8.0\Capstone.Domain.pdb
 E:\Capstone\src\Capstone.Application\bin\Debug\net8.0\BuildingBlocks.pdb
 E:\Capstone\src\Capstone.Application\obj\Debug\net8.0\Capstone.Application.csproj.AssemblyReference.cache
 E:\Capstone\src\Capstone.Application\obj\Debug\net8.0\Capstone.2E996D9B.Up2Date
+E:\Capstone\src\Capstone.Application\obj\Debug\net8.0\Capstone.Application.sourcelink.json

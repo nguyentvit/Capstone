@@ -17,3 +17,6 @@ E:\Capstone\src\Capstone.Infrastructure\bin\Debug\net8.0\BuildingBlocks.pdb
 E:\Capstone\src\Capstone.Infrastructure\bin\Debug\net8.0\Capstone.Domain.pdb
 E:\Capstone\src\Capstone.Infrastructure\obj\Debug\net8.0\Capstone.Infrastructure.csproj.AssemblyReference.cache
 E:\Capstone\src\Capstone.Infrastructure\obj\Debug\net8.0\Capstone.3F8BA1E5.Up2Date
+E:\Capstone\src\Capstone.Infrastructure\obj\Debug\net8.0\Capstone.Infrastructure.sourcelink.json
+E:\Capstone\src\Capstone.Infrastructure\bin\Debug\net8.0\Capstone.Infrastructure.runtimeconfig.json
+E:\Capstone\src\Capstone.Infrastructure\obj\Debug\net8.0\Capstone.Infrastructure.genruntimeconfig.cache
