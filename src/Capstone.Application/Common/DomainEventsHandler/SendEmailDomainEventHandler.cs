@@ -1,10 +1,11 @@
 using Capstone.Application.Common.DomainEvents;
+using Capstone.Application.Interface.Common.Services;
 
 namespace Capstone.Application.Common.DomainEventsHandler;
-public class SendEmailDomainEventHandler() : IDomainEventHandler<SendEmailDomainEvent>
+public class SendEmailDomainEventHandler(IEmailSender emailSender) : IDomainEventHandler<SendEmailDomainEvent>
 {
-    public Task Handle(SendEmailDomainEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(SendEmailDomainEvent notification, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await emailSender.SendEmailAsync(notification.Email, "Verify your OTP", $"Your OTP is {notification.Otp}");
     }
 }

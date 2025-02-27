@@ -137,3 +137,15 @@ E:\Capstone\src\Capstone.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Win
 E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Mapster.dll
 E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Mapster.Core.dll
 E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Duende.IdentityServer.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Duende.IdentityServer.AspNetIdentity.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Duende.IdentityServer.EntityFramework.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Duende.IdentityServer.EntityFramework.Storage.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Duende.IdentityServer.Storage.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\IdentityModel.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+e:\Capstone\src\Capstone.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+e:\Capstone\src\Capstone.API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+e:\Capstone\src\Capstone.API\bin\Debug\net8.0\StackExchange.Redis.dll
+E:\Capstone\src\Capstone.API\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
