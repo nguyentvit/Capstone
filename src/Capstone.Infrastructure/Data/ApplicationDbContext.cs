@@ -1,6 +1,8 @@
+using System.Reflection;
 using Capstone.Application.Interface;
 using Capstone.Domain.Identity.Models;
-using Microsoft.AspNetCore.Identity;
+using Capstone.Domain.RescueTeam.Models;
+using Capstone.Domain.UserAccess.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Capstone.Infrastructure.Data;
@@ -9,30 +11,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    public DbSet<User> AppUsers => Set<User>();
+    public DbSet<Rescue> Rescues => Set<Rescue>();
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        builder.Entity<IdentityRole>().HasData(
-            new IdentityRole
-            {
-                Id = Guid.NewGuid().ToString(),
-                Name = "Admin",
-                NormalizedName = "ADMIN"
-            },
-            new IdentityRole
-            {
-                Id = Guid.NewGuid().ToString(),
-                Name = "User",
-                NormalizedName = "USER"
-            },
-            new IdentityRole
-            {
-                Id = Guid.NewGuid().ToString(),
-                Name = "Rescue",
-                NormalizedName = "RESCUE"
-            }
-            
-        );
+        base.OnModelCreating(builder);
     }
 }

@@ -1,14 +1,17 @@
 using System.Security.Claims;
-using System.Text.Json;
 using Capstone.Application.Identity.Commands.VerifyOtpEmail;
 using Capstone.Application.Identity.Extensions;
+using Capstone.Application.Interface;
 using Capstone.Application.Interface.Services.Identity;
+using Capstone.Domain.Common.ValueObjects;
+using Capstone.Domain.UserAccess.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Capstone.Application.Identity.Commands.Register;
 public class RegisterHandler(
     UserManager<ApplicationUser> userManager, 
-    ISendOtpService sendOtpService) : ICommandHandler<RegisterCommand, RegisterResult>
+    ISendOtpService sendOtpService,
+    IApplicationDbContext dbContext) : ICommandHandler<RegisterCommand, RegisterResult>
 {
     public async Task<RegisterResult> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
@@ -20,15 +23,18 @@ public class RegisterHandler(
         if (string.IsNullOrEmpty(otpHasher))
             throw new IdentityBadRequestException("Invalid otp");
 
-        var otpVerify = JsonSerializer.Deserialize<OtpVerify>(otpHasher) ?? throw new IdentityBadRequestException("Invalid otp");
+        var otpVerify = System.Text.Json.JsonSerializer.Deserialize<OtpVerify>(otpHasher) ?? throw new IdentityBadRequestException("Invalid otp");
 
         if (!OtpExtension.VerifyOtp(command.Otp, otpVerify.otpHasher))
             throw new IdentityBadRequestException("Invalid otp");
 
+        var userId = UserId.Of(Guid.NewGuid());
+
         ApplicationUser user = new()
         {
             Email = email,
-            UserName = email
+            UserName = email,
+            UserId = userId.Value
         };
 
         var result = await userManager.CreateAsync(user, command.Password);
@@ -38,12 +44,18 @@ public class RegisterHandler(
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.Email),
-                new Claim(ClaimTypes.Role, IdentityConfig.User)
+                new Claim(ClaimTypes.Role, "user")
             };
 
-            await userManager.AddToRoleAsync(user, IdentityConfig.User);
+            var newUser = User.Of(userId, UserName.Of(command.Name), Email.Of(email));
+
+            dbContext.AppUsers.Add(newUser);
+
+            await userManager.AddToRoleAsync(user, "user");
             await userManager.AddClaimsAsync(user, claims);
             await sendOtpService.Remove(email);
+            await dbContext.SaveChangesAsync(cancellationToken);
+
 
             return new RegisterResult(true);
         }

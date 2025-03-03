@@ -16,7 +16,7 @@ public class VerifyOtpEmailHandler(ISendOtpService sendOtpService) : ICommandHan
         if (string.IsNullOrEmpty(otpHasher))
             throw new IdentityBadRequestException("Invalid Otp");
 
-        var otpVerify = JsonSerializer.Deserialize<OtpVerify>(otpHasher) ?? throw new IdentityBadRequestException("Invalid Otp");
+        var otpVerify = System.Text.Json.JsonSerializer.Deserialize<OtpVerify>(otpHasher) ?? throw new IdentityBadRequestException("Invalid Otp");
 
         if (!OtpExtension.VerifyOtp(otp, otpVerify.otpHasher))
             throw new IdentityBadRequestException("Invalid Otp");

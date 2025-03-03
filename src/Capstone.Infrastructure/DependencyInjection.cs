@@ -27,7 +27,7 @@ public static class DependencyInjection
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
 
-        services.AddDbContext<ApplicationDbContext>((sp, options) => 
+        services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             options.UseSqlServer(connectionString);
@@ -38,6 +38,8 @@ public static class DependencyInjection
         services.AddRedis(configuration);
         services.AddScoped<IEmailSender, EmailSender>();
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+        services.AddScoped<DataSeeder>();
+        
         return services;
     }
     private static IServiceCollection AddEmailSender(this IServiceCollection services, IConfiguration configuration)
@@ -61,8 +63,8 @@ public static class DependencyInjection
         return services;
     }
     private static IServiceCollection AddIdentity(this IServiceCollection services, IConfiguration configuration)
-    {   
-        
+    {
+
         var environment = configuration["ASPNETCORE_ENVIRONMENT"];
         var connection = configuration.GetConnectionString("Database");
         var migrationsAssembly = typeof(DependencyInjection).Assembly.GetName().FullName;
@@ -80,7 +82,7 @@ public static class DependencyInjection
         services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         {
 
-                // configure password
+            // configure password
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
             options.Password.RequireUppercase = true;
@@ -88,16 +90,16 @@ public static class DependencyInjection
             options.Password.RequiredLength = 6;
             options.Password.RequiredUniqueChars = 1;
 
-                // configure signin
+            // configure signin
             options.SignIn.RequireConfirmedEmail = true;
             options.SignIn.RequireConfirmedAccount = true;
-                
+
         })
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
         services.AddIdentityServer(options =>
-        {
+            {
                 options.Events.RaiseErrorEvents = true;
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
@@ -118,11 +120,14 @@ public static class DependencyInjection
                     sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 .AddAspNetIdentity<ApplicationUser>()
-                .AddDeveloperSigningCredential()
-                ;
+                .AddProfileService<CustomProfileService>()
+                .AddDeveloperSigningCredential();
+        
+        services.AddTransient<UserManager<ApplicationUser>, CustomUserManager>();
+        services.AddTransient<IPasswordHasher<ApplicationUser>, CustomPasswordHasher<ApplicationUser>>();
 
         return services;
-    } 
+    }
     private static IServiceCollection AddRedis(this IServiceCollection services, IConfiguration configuration)
     {
         var redisConfiguration = configuration.GetConnectionString("Redis");

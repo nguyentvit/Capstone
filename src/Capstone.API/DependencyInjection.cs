@@ -9,14 +9,20 @@ public static class DependencyInjection
     {
         services.AddAuth(configuration);
 
+        services.AddAuthorization(options => {
+            options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+        });
+
         services.AddHttpContextAccessor();
 
-        services.AddCors(options => {
-           options.AddPolicy("AllowAllOrigins", builder => {
-            builder.AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-           }); 
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAllOrigins", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
         });
 
         services.AddCarter();
@@ -27,11 +33,19 @@ public static class DependencyInjection
     }
     public static WebApplication UseApiServices(this WebApplication app)
     {
+        app.UseExceptionHandler(options => { });
+
+        app.UseRouting();
+
         app.UseCors("AllowAllOrigins");
 
-        app.MapCarter();
+        app.UseIdentityServer();
 
-        app.UseExceptionHandler(options => {});
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseRescueAuthentication();
+
+        app.MapCarter();
 
         return app;
     }
@@ -41,11 +55,13 @@ public static class DependencyInjection
 
         if (environment == "Development")
         {
-            services.AddAuthentication(options => {
+            services.AddAuthentication(options =>
+            {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(options => {
+            .AddJwtBearer(options =>
+            {
                 options.SaveToken = true;
                 options.Authority = "http://localhost:5036";
                 options.RequireHttpsMetadata = false;
@@ -56,7 +72,7 @@ public static class DependencyInjection
                 };
             });
         }
-        
+
         return services;
     }
 }

@@ -1,6 +1,5 @@
 using System.Reflection;
 using BuildingBlocks.Behaviors;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Capstone.Application;
