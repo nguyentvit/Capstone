@@ -17,7 +17,7 @@ builder.Configuration
 var configuration = builder.Configuration;
 
 builder.Services
-    .AddApplicationServices(configuration)
+    .AddApplicationServices()
     .AddInfrastructureServices(configuration)
     .AddApiServices(configuration);
 
@@ -31,47 +31,45 @@ InitializeDatabase(app);
 
 app.Run();
 
-void InitializeDatabase(IApplicationBuilder app)
+static void InitializeDatabase(IApplicationBuilder app)
 {
-    using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope())
+    using var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()!.CreateScope();
+
+    serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+
+    var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+    context.Database.Migrate();
+
+    context.Clients.RemoveRange(context.Clients);
+    context.IdentityResources.RemoveRange(context.IdentityResources);
+    context.ApiScopes.RemoveRange(context.ApiScopes);
+    context.SaveChanges();
+
+    if (!context.Clients.Any())
     {
-
-        serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
-
-        var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
-        context.Database.Migrate();
-
-        context.Clients.RemoveRange(context.Clients);
-        context.IdentityResources.RemoveRange(context.IdentityResources);
-        context.ApiScopes.RemoveRange(context.ApiScopes);
+        foreach (var client in IdentityConfig.Get)
+        {
+            context.Clients.Add(client.ToEntity());
+        }
         context.SaveChanges();
+    }
 
-        if (!context.Clients.Any())
+    if (!context.IdentityResources.Any())
+    {
+        foreach (var resource in IdentityConfig.IdentityResources)
         {
-            foreach (var client in IdentityConfig.Get)
-            {
-                context.Clients.Add(client.ToEntity());
-            }
-            context.SaveChanges();
+            context.IdentityResources.Add(resource.ToEntity());
         }
+        context.SaveChanges();
+    }
 
-        if (!context.IdentityResources.Any())
+    if (!context.ApiScopes.Any())
+    {
+        foreach (var resource in IdentityConfig.ApiScopes)
         {
-            foreach (var resource in IdentityConfig.IdentityResources)
-            {
-                context.IdentityResources.Add(resource.ToEntity());
-            }
-            context.SaveChanges();
+            context.ApiScopes.Add(resource.ToEntity());
         }
-
-        if (!context.ApiScopes.Any())
-        {
-            foreach (var resource in IdentityConfig.ApiScopes)
-            {
-                context.ApiScopes.Add(resource.ToEntity());
-            }
-            context.SaveChanges();
-        }
+        context.SaveChanges();
     }
 }
 

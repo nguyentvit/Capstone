@@ -1,6 +1,7 @@
 using BuildingBlocks.Exceptions.Handler;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace Capstone.API;
 public static class DependencyInjection
@@ -9,8 +10,19 @@ public static class DependencyInjection
     {
         services.AddAuth(configuration);
 
-        services.AddAuthorization(options => {
-            options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+        services.AddAuthorizationBuilder()
+            .AddPolicy(PolicyConstant.ADMIN, policy => policy.RequireRole(RoleConstant.ADMIN))
+            .AddPolicy(PolicyConstant.TEACHER, policy => policy.RequireRole(RoleConstant.TEACHER))
+            .AddPolicy(PolicyConstant.STUDENT, policy => policy.RequireRole(RoleConstant.STUDENT))
+            .AddPolicy(PolicyConstant.ADMIN_OR_TEACHER, policy => policy.RequireRole(RoleConstant.ADMIN, RoleConstant.TEACHER));
+
+        services.ConfigureApplicationCookie(options =>
+        {
+            options.Events.OnRedirectToLogin = context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        return Task.CompletedTask;
+    };
         });
 
         services.AddHttpContextAccessor();
@@ -19,10 +31,17 @@ public static class DependencyInjection
         {
             options.AddPolicy("AllowAllOrigins", builder =>
             {
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
+                builder.WithOrigins("http://localhost:5173")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .AllowCredentials();
             });
+        });
+
+        services.AddEndpointsApiExplorer();
+        services.AddSwaggerGen(c =>
+        {
+            c.MapType<IFormFile>(() => new OpenApiSchema { Type = "string", Format = "binary" });
         });
 
         services.AddCarter();
@@ -33,6 +52,9 @@ public static class DependencyInjection
     }
     public static WebApplication UseApiServices(this WebApplication app)
     {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+
         app.UseExceptionHandler(options => { });
 
         app.UseRouting();
@@ -43,7 +65,6 @@ public static class DependencyInjection
 
         app.UseAuthentication();
         app.UseAuthorization();
-        app.UseRescueAuthentication();
 
         app.MapCarter();
 

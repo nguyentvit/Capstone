@@ -23,7 +23,10 @@ public static class JwtExtensions
         if (string.IsNullOrEmpty(token)) return null!;
 
         var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(token);
-        return jwtToken.Claims.FirstOrDefault(claim => claim.Type == ClaimTypes.Role)?.Value!;
+        var roleClaim = jwtToken.Claims.FirstOrDefault(claim =>
+        claim.Type == ClaimTypes.Role || claim.Type == "role");
+
+        return roleClaim?.Value ?? null!;
     }
     private static string GetJwtToken(this HttpContext httpContext)
     {
