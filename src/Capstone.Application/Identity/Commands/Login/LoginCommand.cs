@@ -1,7 +1,7 @@
-namespace Capstone.Application.Identity.Commands.Login;
+﻿namespace Capstone.Application.Identity.Commands.Login;
 
-public record LoginCommand(string Email, string Password, string Role) : ICommand<LoginResult>;
-public record LoginResult(string AccessToken, string RefreshToken, int ExpiresIn, string TokenType, string IdToken);
+public record LoginCommand(string UserName, string Password) : ICommand<LoginResult>;
+public record LoginResult(string AccessToken, string RefreshToken, int ExpiresIn, string TokenType, string IdToken, string Role);
 public record TokenResult(
     [JsonProperty("access_token")]
     string AccessToken,
@@ -20,14 +20,12 @@ public class LoginCommandValidator : AbstractValidator<LoginCommand>
 {
     public LoginCommandValidator()
     {
-        RuleFor(x => x.Email)
+        RuleFor(x => x.UserName)
             .NotEmpty()
-            .WithMessage("Email cannot be empty")
-            .EmailAddress()
-            .WithMessage("Email is invalid");
+            .WithMessage("Tên người dùng không thể trống");
 
         RuleFor(x => x.Password)
             .NotEmpty()
-            .WithMessage("Password cannot be empty");
+            .WithMessage("Mật khẩu không thể trống");
     }
 }

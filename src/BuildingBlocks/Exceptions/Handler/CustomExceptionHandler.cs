@@ -45,6 +45,12 @@ namespace BuildingBlocks.Exceptions.Handler
                     exception.Message,
                     exception.GetType().Name,
                     httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized
+                ),
+                BussinessException => 
+                (
+                    exception.Message,
+                    exception.GetType().Name,
+                    httpContext.Response.StatusCode = StatusCodes.Status400BadRequest
                 )
                 ,
                 _ =>
@@ -68,6 +74,11 @@ namespace BuildingBlocks.Exceptions.Handler
             if (exception is ValidationException validationException)
             {
                 problemDetails.Extensions.Add("ValidationErrors", validationException.Errors);
+            }
+
+            else if (exception is BussinessException bussinessException)
+            {
+                problemDetails.Extensions.Add("ValidationErrors", bussinessException.Errors);
             }
 
             await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken: cancellationToken);

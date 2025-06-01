@@ -16,6 +16,12 @@ public class CustomProfileService(UserManager<ApplicationUser> userManager) : IP
 
 
         var user = string.IsNullOrEmpty(email) ? await userManager.FindByIdAsync(sub) : await userManager.FindByEmailAsync(email);
+
+        if (user == null || !user.IsActive)
+        {
+            throw new InvalidOperationException("User is not active");
+        }
+
         var userId = user!.UserId;
 
         var claims = await userManager.GetClaimsAsync(user);
@@ -36,4 +42,5 @@ public class CustomProfileService(UserManager<ApplicationUser> userManager) : IP
         context.IsActive = true;
         return Task.CompletedTask;
     }
+    
 }

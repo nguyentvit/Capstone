@@ -1,5 +1,5 @@
+using BuildingBlocks.Constants;
 using Capstone.Application.Interface;
-using Capstone.Domain.Common.ValueObjects;
 using Capstone.Domain.Identity.Models;
 using Capstone.Domain.UserAccess.Models;
 using Capstone.Domain.UserAccess.ValueObjects;
@@ -21,7 +21,8 @@ public class DataSeeder
 
     private async Task EnsureRolesAsync()
     {
-        string[] roles = ["Admin", "User", "Rescue"];
+        string[] roles = [RoleConstant.ADMIN, RoleConstant.STUDENT, RoleConstant.TEACHER];
+
 
         foreach (var roleName in roles)
         {
@@ -34,18 +35,17 @@ public class DataSeeder
 
     private async Task EnsureAdminUserAsync()
     {
-        string adminEmail = "admin@example.com";
+        string adminUserName = "admin";
         string adminPassword = "Admin@123";
 
-        var adminUser = await userManager.FindByEmailAsync(adminEmail);
+        var adminUser = await userManager.FindByNameAsync(adminUserName);
         if (adminUser == null)
         {
             var userId = UserId.Of(Guid.NewGuid());
 
             var newAdmin = new ApplicationUser
             {
-                UserName = "admin",
-                Email = adminEmail,
+                UserName = adminUserName,
                 EmailConfirmed = true,
                 UserId = userId.Value
             };
@@ -53,11 +53,11 @@ public class DataSeeder
             var result = await userManager.CreateAsync(newAdmin, adminPassword);
             if (result.Succeeded)
             {
-                var newUser = User.Of(userId, UserName.Of("Admin"), Email.Of(adminEmail));
+                var newUser = User.Of(userId, UserName.Of("Admin"));
                 dbContext.AppUsers.Add(newUser);
                 
                 await Task.WhenAll(
-                    userManager.AddToRoleAsync(newAdmin, "Admin"),
+                    userManager.AddToRoleAsync(newAdmin, RoleConstant.ADMIN),
                     dbContext.SaveChangesAsync()
                 );
             }

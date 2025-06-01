@@ -1,4 +1,4 @@
-namespace Capstone.Application.Identity.Commands.Logout;
+﻿namespace Capstone.Application.Identity.Commands.Logout;
 
 public record LogoutCommand(string RefreshToken) : ICommand<LogoutResult>;
 public record LogoutResult(bool IsSuccess);
@@ -8,6 +8,6 @@ public class LogoutCommandValidator : AbstractValidator<LogoutCommand>
     {
         RuleFor(x => x.RefreshToken)
             .NotEmpty()
-            .WithMessage("Refresh Token cannot be empty");
+            .WithMessage("Refresh token không thể để trống");
     }
 }

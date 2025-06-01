@@ -1,7 +1,7 @@
 {
-  "BuildingBlocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\src\\BuildingBlocks",
-  "Capstone.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\src\\Capstone.API",
-  "Capstone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\src\\Capstone.Application",
-  "Capstone.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\src\\Capstone.Domain",
-  "Capstone.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\src\\Capstone.Infrastructure"
+  "BuildingBlocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks",
+  "Capstone.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API",
+  "Capstone.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application",
+  "Capstone.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain",
+  "Capstone.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure"
 }

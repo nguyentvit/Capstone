@@ -2,13 +2,11 @@ namespace Capstone.Domain.Common.ValueObjects;
 public record Image
 {
     public string Url { get; } = default!;
-    public ImageFormat Format { get; } = default!;
-    private Image(string url, ImageFormat format)
+    private Image(string url)
     {
         Url = url;
-        Format = format;
     }
-    public static Image Of(string url, ImageFormat format)
+    public static Image Of(string url)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(url);
 
@@ -17,6 +15,6 @@ public record Image
             throw new DomainException("Url is not a valid absolute URI");
         }
 
-        return new Image(url, format);
+        return new Image(url);
     }
 }

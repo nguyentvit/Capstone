@@ -32,7 +32,7 @@ public class RefreshTokenHandler(IConfiguration configuration) : ICommandHandler
         var tokenResponse = await client.SendAsync(token);
         if (!tokenResponse.IsSuccessStatusCode)
         {
-            throw new IdentityBadRequestException("Invalid grand"); ;
+            throw new IdentityBadRequestException("Invalid grand");
         }
 
         var tokenContent = await tokenResponse.Content.ReadAsStringAsync();

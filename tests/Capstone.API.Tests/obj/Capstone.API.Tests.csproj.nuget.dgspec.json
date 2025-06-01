@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Capstone\\tests\\Capstone.API.Tests\\Capstone.API.Tests.csproj": {}
+    "E:\\Capstone\\Capstone.Server\\tests\\capstone.api.tests\\Capstone.API.Tests.csproj": {}
   },
   "projects": {
-    "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj",
         "projectName": "BuildingBlocks",
-        "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\BuildingBlocks\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -80,40 +87,46 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Capstone\\src\\Capstone.API\\Capstone.API.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Capstone.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\Capstone.API\\Capstone.API.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Capstone.API.csproj",
         "projectName": "Capstone.API",
-        "projectPath": "E:\\Capstone\\src\\Capstone.API\\Capstone.API.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Capstone.API.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\Capstone.API\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
-                "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj"
               },
-              "E:\\Capstone\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj"
               }
             }
           }
@@ -127,7 +140,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -179,37 +193,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj",
         "projectName": "Capstone.Application",
-        "projectPath": "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\Capstone.Application\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
-                "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj"
               }
             }
           }
@@ -223,7 +243,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -254,34 +275,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj",
         "projectName": "Capstone.Domain",
-        "projectPath": "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\Capstone.Domain\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
-                "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               }
             }
           }
@@ -295,7 +322,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -334,40 +362,46 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Capstone\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj",
         "projectName": "Capstone.Infrastructure",
-        "projectPath": "E:\\Capstone\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Capstone.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\Capstone.Infrastructure\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
-                "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.Application\\Capstone.Application.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Capstone.Application.csproj"
               },
-              "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.Domain\\Capstone.Domain.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\Capstone.Domain.csproj"
               }
             }
           }
@@ -381,7 +415,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -404,6 +439,12 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
@@ -434,34 +475,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Capstone\\tests\\Capstone.API.Tests\\Capstone.API.Tests.csproj": {
+    "E:\\Capstone\\Capstone.Server\\tests\\capstone.api.tests\\Capstone.API.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\tests\\Capstone.API.Tests\\Capstone.API.Tests.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\tests\\capstone.api.tests\\Capstone.API.Tests.csproj",
         "projectName": "Capstone.API.Tests",
-        "projectPath": "E:\\Capstone\\tests\\Capstone.API.Tests\\Capstone.API.Tests.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\tests\\capstone.api.tests\\Capstone.API.Tests.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\tests\\Capstone.API.Tests\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\tests\\capstone.api.tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Capstone\\src\\Capstone.API\\Capstone.API.csproj": {
-                "projectPath": "E:\\Capstone\\src\\Capstone.API\\Capstone.API.csproj"
+              "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Capstone.API.csproj": {
+                "projectPath": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Capstone.API.csproj"
               }
             }
           }
@@ -475,17 +522,34 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ChainingAssertion-NUnit.Bin": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[8.1.1, )"
             },
             "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.2, )"
             },
@@ -500,6 +564,20 @@
             "Moq": {
               "target": "Package",
               "version": "[4.20.72, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.3.2, )"
+            },
+            "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "coverlet.collector": {
               "target": "Package",
@@ -530,7 +608,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

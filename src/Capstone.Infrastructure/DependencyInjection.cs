@@ -1,13 +1,16 @@
 using System.Net;
 using System.Net.Mail;
+using BuildingBlocks.Interfaces;
+using BuildingBlocks.Services;
 using Capstone.Application.Interface;
 using Capstone.Application.Interface.Common.Services;
+using Capstone.Application.Interface.Services;
 using Capstone.Application.Interface.Services.Identity;
 using Capstone.Domain.Identity.Models;
 using Capstone.Infrastructure.Data;
 using Capstone.Infrastructure.Data.Interceptors;
 using Capstone.Infrastructure.DTO;
-using Capstone.Infrastructure.Services.Common;
+using Capstone.Infrastructure.Services;
 using Capstone.Infrastructure.Services.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -39,7 +42,9 @@ public static class DependencyInjection
         services.AddScoped<IEmailSender, EmailSender>();
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         services.AddScoped<DataSeeder>();
-        
+        services.AddSingleton<IS3Service, S3Service>();
+        services.AddScoped<ICSVService, CSVService>();
+
         return services;
     }
     private static IServiceCollection AddEmailSender(this IServiceCollection services, IConfiguration configuration)
@@ -69,11 +74,6 @@ public static class DependencyInjection
         var connection = configuration.GetConnectionString("Database");
         var migrationsAssembly = typeof(DependencyInjection).Assembly.GetName().FullName;
 
-        services.AddDbContext<ApplicationDbContext>(options =>
-        {
-            options.UseSqlServer(configuration.GetConnectionString("Database"));
-        });
-
         services.Configure<DataProtectionTokenProviderOptions>(options =>
         {
             options.TokenLifespan = TimeSpan.FromMinutes(15);
@@ -81,20 +81,17 @@ public static class DependencyInjection
 
         services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         {
-
-            // configure password
-            options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequireUppercase = true;
-            options.Password.RequireNonAlphanumeric = true;
             options.Password.RequiredLength = 6;
-            options.Password.RequiredUniqueChars = 1;
+            options.Password.RequireDigit = false;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireNonAlphanumeric = false;
 
-            // configure signin
             options.SignIn.RequireConfirmedEmail = true;
             options.SignIn.RequireConfirmedAccount = true;
 
         })
+            .AddUserValidator<CustomUserValidator>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 

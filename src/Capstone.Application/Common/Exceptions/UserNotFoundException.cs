@@ -1,8 +1,4 @@
-namespace Capstone.Application.Common.Exceptions;
-public class UserNotFoundException : NotFoundException
+﻿namespace Capstone.Application.Common.Exceptions;
+public class UserNotFoundException(Guid Id) : NotFoundException("Người dùng với Id: ", Id)
 {
-    public UserNotFoundException(Guid Id) : base("User with Id", Id)
-    {
-
-    }
 }

@@ -23,6 +23,194 @@ namespace Capstone.Infrastructure.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Capstone.Domain.ChapterDomain.Models.Chapter", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chapters");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ClassDomain.Models.Class", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Classes");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamModule.Models.Exam", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ExamTemplateId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Exams");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamSessionModule.Models.ExamSession", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ClassId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ExamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsCodeBased")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ExamSessions");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamTemplateModule.Models.ExamTemplate", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DurationInMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ExamTemplates");
+                });
+
             modelBuilder.Entity("Capstone.Domain.Identity.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -40,6 +228,9 @@ namespace Capstone.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
@@ -91,7 +282,78 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Capstone.Domain.RescueTeam.Models.Rescue", b =>
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.Common.Models.Question", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("BeforeQuestionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("ChapterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Difficulty")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsLastVersion")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPersonal")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RootId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Questions");
+
+                    b.HasDiscriminator().HasValue("Question");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Capstone.Domain.SubjectDomain.Models.Subject", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -102,84 +364,31 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ManagerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "Capstone.Domain.RescueTeam.Models.Rescue.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Country")
-                                .IsRequired()
-                                .ValueGeneratedOnAdd()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasDefaultValue("Việt Nam")
-                                .HasColumnName("Country");
-
-                            b1.Property<string>("District")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("District");
-
-                            b1.Property<string>("Province")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Province");
-
-                            b1.Property<string>("Ward")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Ward");
-                        });
-
-                    b.ComplexProperty<Dictionary<string, object>>("Coordinates", "Capstone.Domain.RescueTeam.Models.Rescue.Coordinates#Coordinates", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<double>("Latitude")
-                                .HasColumnType("float")
-                                .HasColumnName("Latitude");
-
-                            b1.Property<double>("Longitude")
-                                .HasColumnType("float")
-                                .HasColumnName("Longitude");
-                        });
-
-                    b.ComplexProperty<Dictionary<string, object>>("Phone", "Capstone.Domain.RescueTeam.Models.Rescue.Phone#PhoneNumber", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(20)
-                                .HasColumnType("nvarchar(20)")
-                                .HasColumnName("Phone");
-                        });
-
-                    b.ComplexProperty<Dictionary<string, object>>("RescueName", "Capstone.Domain.RescueTeam.Models.Rescue.RescueName#RescueName", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(100)
-                                .HasColumnType("nvarchar(100)")
-                                .HasColumnName("RescueName");
-                        });
+                    b.Property<string>("SubjectName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rescues");
+                    b.ToTable("Subjects");
+
+                    b.HasDiscriminator().HasValue("Subject");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Capstone.Domain.UserAccess.Models.User", b =>
@@ -193,25 +402,19 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Email", "Capstone.Domain.UserAccess.Models.User.Email#Email", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Email");
-                        });
 
                     b.ComplexProperty<Dictionary<string, object>>("UserName", "Capstone.Domain.UserAccess.Models.User.UserName#UserName", b1 =>
                         {
@@ -227,6 +430,53 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
+
+                    b.HasDiscriminator().HasValue("User");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.PersistedGrant", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ConsumedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Data")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Expiration")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Key")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SessionId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubjectId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PersistedGrantsDb");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -362,18 +612,163 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Capstone.Domain.RescueTeam.Models.Rescue", b =>
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.EssayQuestion.Models.EssayQuestion", b =>
                 {
-                    b.OwnsMany("Capstone.Domain.RescueTeam.Entities.RescueMember", "RescueMembers", b1 =>
+                    b.HasBaseType("Capstone.Domain.QuestionDomain.Common.Models.Question");
+
+                    b.HasDiscriminator().HasValue("EssayQuestion");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.MatchingQuestion.Models.MatchingQuestion", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.QuestionDomain.Common.Models.Question");
+
+                    b.HasDiscriminator().HasValue("MatchingQuestion");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.MultiChoiceQuestion.Models.MultiChoiceQuestion", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.QuestionDomain.Common.Models.Question");
+
+                    b.HasDiscriminator().HasValue("MultiChoiceQuestion");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.SingleChoiceQuestion.Models.SingleChoiceQuestion", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.QuestionDomain.Common.Models.Question");
+
+                    b.Property<Guid>("CorrectAnswerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasDiscriminator().HasValue("SingleChoiceQuestion");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.TrueFalseQuestion.Models.TrueFalseQuestion", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.QuestionDomain.Common.Models.Question");
+
+                    b.Property<bool>("IsTrueAnswer")
+                        .HasColumnType("bit");
+
+                    b.HasDiscriminator().HasValue("TrueFalseQuestion");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.SubjectDomain.Models.SystemSubject", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.SubjectDomain.Models.Subject");
+
+                    b.HasDiscriminator().HasValue("SystemSubject");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.SubjectDomain.Models.TeacherSubject", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.SubjectDomain.Models.Subject");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasDiscriminator().HasValue("TeacherSubject");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.StudentDomain.Models.Student", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.UserAccess.Models.User");
+
+                    b.Property<string>("StudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Student");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.TeacherDomain.Models.Teacher", b =>
+                {
+                    b.HasBaseType("Capstone.Domain.UserAccess.Models.User");
+
+                    b.Property<string>("TeacherId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Teacher");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ChapterDomain.Models.Chapter", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.QuestionDomain.Common.ValueObjects.QuestionId", "QuestionIds", b1 =>
+                        {
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<Guid>("ChapterId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("Value")
+                                .HasColumnType("uniqueidentifier")
+                                .HasColumnName("QuestionId");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ChapterId");
+
+                            b1.ToTable("ChapterQuestionIds", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ChapterId");
+                        });
+
+                    b.Navigation("QuestionIds");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ClassDomain.Models.Class", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ClassDomain.Entities.ClassStudent", "Students", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier")
-                                .HasColumnName("RescueMemberId");
+                                .HasColumnName("ClassStudentId");
 
-                            b1.Property<Guid>("RescueId")
+                            b1.Property<Guid>("ClassId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<string>("AvailableStatus")
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("StudentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.HasKey("Id", "ClassId");
+
+                            b1.HasIndex("ClassId");
+
+                            b1.ToTable("ClassStudents", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ClassId");
+                        });
+
+                    b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamModule.Models.Exam", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ExamModule.Entities.ExamVersion", "ExamVersions", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Code")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
@@ -383,19 +778,11 @@ namespace Capstone.Infrastructure.Data.Migrations
                             b1.Property<string>("CreatedBy")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Email")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Email");
+                            b1.Property<Guid>("ExamId")
+                                .HasColumnType("uniqueidentifier");
 
-                            b1.Property<string>("Gender")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Introduction")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Introduction");
+                            b1.Property<bool>("IsAnswerShuffle")
+                                .HasColumnType("bit");
 
                             b1.Property<DateTime?>("LastModified")
                                 .HasColumnType("datetime2");
@@ -403,137 +790,345 @@ namespace Capstone.Infrastructure.Data.Migrations
                             b1.Property<string>("LastModifiedBy")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Passport")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Passport");
-
-                            b1.Property<string>("Phone")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Phone");
-
-                            b1.Property<string>("RescueMemberName")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("RescueMemberName");
-
-                            b1.Property<string>("Role")
+                            b1.Property<string>("OrderQuestion")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Status")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                            b1.HasKey("Id");
 
-                            b1.HasKey("Id", "RescueId");
+                            b1.HasIndex("ExamId");
 
-                            b1.HasIndex("RescueId");
-
-                            b1.ToTable("RescueMembers", (string)null);
+                            b1.ToTable("ExamExamVersions", (string)null);
 
                             b1.WithOwner()
-                                .HasForeignKey("RescueId");
+                                .HasForeignKey("ExamId");
 
-                            b1.OwnsOne("Capstone.Domain.Common.ValueObjects.Address", "Address", b2 =>
+                            b1.OwnsMany("Capstone.Domain.ExamModule.ValueObjects.ExamQuestion", "Questions", b2 =>
                                 {
-                                    b2.Property<Guid>("RescueMemberId")
+                                    b2.Property<Guid>("ExamVersionId")
                                         .HasColumnType("uniqueidentifier");
 
-                                    b2.Property<Guid>("RescueMemberRescueId")
+                                    b2.Property<Guid>("QuestionId")
                                         .HasColumnType("uniqueidentifier");
 
-                                    b2.Property<string>("Country")
-                                        .IsRequired()
-                                        .ValueGeneratedOnAdd()
-                                        .HasMaxLength(50)
-                                        .HasColumnType("nvarchar(50)")
-                                        .HasDefaultValue("Việt Nam")
-                                        .HasColumnName("Country");
+                                    b2.Property<int>("Order")
+                                        .HasColumnType("int");
 
-                                    b2.Property<string>("District")
-                                        .IsRequired()
-                                        .HasMaxLength(50)
-                                        .HasColumnType("nvarchar(50)")
-                                        .HasColumnName("District");
+                                    b2.Property<double>("PointPerCorrect")
+                                        .HasColumnType("float");
 
-                                    b2.Property<string>("Province")
-                                        .IsRequired()
-                                        .HasMaxLength(50)
-                                        .HasColumnType("nvarchar(50)")
-                                        .HasColumnName("Province");
+                                    b2.Property<double>("PointPerInCorrect")
+                                        .HasColumnType("float");
 
-                                    b2.Property<string>("Ward")
-                                        .IsRequired()
-                                        .HasMaxLength(50)
-                                        .HasColumnType("nvarchar(50)")
-                                        .HasColumnName("Ward");
+                                    b2.HasKey("ExamVersionId", "QuestionId");
 
-                                    b2.HasKey("RescueMemberId", "RescueMemberRescueId");
-
-                                    b2.ToTable("RescueMembers");
+                                    b2.ToTable("ExamVersionQuestions", (string)null);
 
                                     b2.WithOwner()
-                                        .HasForeignKey("RescueMemberId", "RescueMemberRescueId");
+                                        .HasForeignKey("ExamVersionId");
                                 });
 
-                            b1.OwnsOne("Capstone.Domain.Common.ValueObjects.Date", "DateOfBirth", b2 =>
+                            b1.Navigation("Questions");
+                        });
+
+                    b.Navigation("ExamVersions");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamSessionModule.Models.ExamSession", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ExamSessionModule.Entities.Participant", "Participants", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Email")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("ExamSessionId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid?>("ExamVersionId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("FullName")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<bool>("IsDone")
+                                .HasColumnType("bit");
+
+                            b1.Property<bool>("IsFree")
+                                .HasColumnType("bit");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<double?>("Score")
+                                .HasColumnType("float");
+
+                            b1.Property<DateTime?>("StartAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("StudentId")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("SubmittedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ExamSessionId");
+
+                            b1.ToTable("ExamSessionParticipants", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ExamSessionId");
+
+                            b1.OwnsMany("Capstone.Domain.ExamSessionModule.Entities.ParticipantAction", "Actions", b2 =>
                                 {
-                                    b2.Property<Guid>("RescueMemberId")
+                                    b2.Property<Guid>("ParticipantId")
                                         .HasColumnType("uniqueidentifier");
 
-                                    b2.Property<Guid>("RescueMemberRescueId")
+                                    b2.Property<Guid>("Id")
                                         .HasColumnType("uniqueidentifier");
 
-                                    b2.Property<DateTime>("Value")
-                                        .HasColumnType("datetime2")
-                                        .HasColumnName("DateOfBirth");
+                                    b2.Property<string>("ActionType")
+                                        .IsRequired()
+                                        .HasColumnType("nvarchar(max)");
 
-                                    b2.HasKey("RescueMemberId", "RescueMemberRescueId");
+                                    b2.Property<DateTime?>("CreatedAt")
+                                        .HasColumnType("datetime2");
 
-                                    b2.ToTable("RescueMembers");
+                                    b2.Property<string>("CreatedBy")
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<DateTime?>("LastModified")
+                                        .HasColumnType("datetime2");
+
+                                    b2.Property<string>("LastModifiedBy")
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.HasKey("ParticipantId", "Id");
+
+                                    b2.ToTable("ParticipantActions", (string)null);
 
                                     b2.WithOwner()
-                                        .HasForeignKey("RescueMemberId", "RescueMemberRescueId");
+                                        .HasForeignKey("ParticipantId");
                                 });
 
-                            b1.Navigation("Address")
-                                .IsRequired();
+                            b1.OwnsMany("Capstone.Domain.ExamSessionModule.Entities.ParticipantAnswer", "Answers", b2 =>
+                                {
+                                    b2.Property<Guid>("ParticipantId")
+                                        .HasColumnType("uniqueidentifier");
 
-                            b1.Navigation("DateOfBirth")
-                                .IsRequired();
+                                    b2.Property<Guid>("Id")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<string>("AnswerRaw")
+                                        .IsRequired()
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<DateTime?>("CreatedAt")
+                                        .HasColumnType("datetime2");
+
+                                    b2.Property<string>("CreatedBy")
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<string>("GradingStatus")
+                                        .IsRequired()
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<DateTime?>("LastModified")
+                                        .HasColumnType("datetime2");
+
+                                    b2.Property<string>("LastModifiedBy")
+                                        .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<Guid>("QuestionId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<double?>("Score")
+                                        .HasColumnType("float");
+
+                                    b2.HasKey("ParticipantId", "Id");
+
+                                    b2.ToTable("ParticipantAnswers", (string)null);
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("ParticipantId");
+                                });
+
+                            b1.Navigation("Actions");
+
+                            b1.Navigation("Answers");
+                        });
+
+                    b.Navigation("Participants");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.ExamTemplateModule.Models.ExamTemplate", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ExamTemplateModule.Entities.ExamTemplateSection", "ExamTemplateSection", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("ChapterId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("ExamTemplateId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ExamTemplateId");
+
+                            b1.ToTable("ExamTemplateExamTemplateSections", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ExamTemplateId");
+
+                            b1.OwnsMany("Capstone.Domain.ExamTemplateModule.ValueObjects.DifficultySectionConfig", "DifficultyConfigs", b2 =>
+                                {
+                                    b2.Property<Guid>("ExamTemplateSectionId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<string>("Difficulty")
+                                        .HasColumnType("nvarchar(450)");
+
+                                    b2.HasKey("ExamTemplateSectionId", "Difficulty");
+
+                                    b2.ToTable("ExamTemplateSectionDifficultyConfigs", (string)null);
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("ExamTemplateSectionId");
+
+                                    b2.OwnsMany("Capstone.Domain.ExamTemplateModule.ValueObjects.QuestionTypeConfig", "QuestionTypeConfigs", b3 =>
+                                        {
+                                            b3.Property<Guid>("ExamTemplateSectionId")
+                                                .HasColumnType("uniqueidentifier");
+
+                                            b3.Property<string>("Difficulty")
+                                                .HasColumnType("nvarchar(450)");
+
+                                            b3.Property<string>("Type")
+                                                .HasColumnType("nvarchar(450)");
+
+                                            b3.Property<int>("NumberOfQuestions")
+                                                .HasColumnType("int");
+
+                                            b3.Property<double>("PointPerCorrect")
+                                                .HasColumnType("float");
+
+                                            b3.Property<double>("PointPerInCorrect")
+                                                .HasColumnType("float");
+
+                                            b3.HasKey("ExamTemplateSectionId", "Difficulty", "Type");
+
+                                            b3.ToTable("DifficultyConfig_QuestionTypeConfigs", (string)null);
+
+                                            b3.WithOwner()
+                                                .HasForeignKey("ExamTemplateSectionId", "Difficulty");
+                                        });
+
+                                    b2.Navigation("QuestionTypeConfigs");
+                                });
+
+                            b1.Navigation("DifficultyConfigs");
+                        });
+
+                    b.Navigation("ExamTemplateSection");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.SubjectDomain.Models.Subject", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ChapterDomain.ValueObjects.ChapterId", "ChapterIds", b1 =>
+                        {
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<Guid>("SubjectId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("Value")
+                                .HasColumnType("uniqueidentifier")
+                                .HasColumnName("ChapterId");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("SubjectId");
+
+                            b1.ToTable("SubjectChapterIds", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("SubjectId");
+                        });
+
+                    b.Navigation("ChapterIds");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.UserAccess.Models.User", b =>
+                {
+                    b.OwnsOne("Capstone.Domain.Common.ValueObjects.Email", "Email", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("Email");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("AppUsers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
                         });
 
                     b.OwnsOne("Capstone.Domain.Common.ValueObjects.Image", "Avatar", b1 =>
                         {
-                            b1.Property<Guid>("RescueId")
+                            b1.Property<Guid>("UserId")
                                 .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Format")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Format");
 
                             b1.Property<string>("Url")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)")
                                 .HasColumnName("Url");
 
-                            b1.HasKey("RescueId");
+                            b1.HasKey("UserId");
 
-                            b1.ToTable("Rescues");
+                            b1.ToTable("AppUsers");
 
                             b1.WithOwner()
-                                .HasForeignKey("RescueId");
+                                .HasForeignKey("UserId");
                         });
 
-                    b.Navigation("Avatar");
-
-                    b.Navigation("RescueMembers");
-                });
-
-            modelBuilder.Entity("Capstone.Domain.UserAccess.Models.User", b =>
-                {
                     b.OwnsOne("Capstone.Domain.Common.ValueObjects.PhoneNumber", "Phone", b1 =>
                         {
                             b1.Property<Guid>("UserId")
@@ -553,90 +1148,9 @@ namespace Capstone.Infrastructure.Data.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.OwnsOne("Capstone.Domain.Common.ValueObjects.Address", "Address", b1 =>
-                        {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Country")
-                                .IsRequired()
-                                .ValueGeneratedOnAdd()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasDefaultValue("Việt Nam")
-                                .HasColumnName("Country");
-
-                            b1.Property<string>("District")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("District");
-
-                            b1.Property<string>("Province")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Province");
-
-                            b1.Property<string>("Ward")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Ward");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("AppUsers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.OwnsOne("Capstone.Domain.Common.ValueObjects.Image", "Avatar", b1 =>
-                        {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Format")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Format");
-
-                            b1.Property<string>("Url")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Url");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("AppUsers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.OwnsOne("Capstone.Domain.Common.ValueObjects.Date", "DateOfBirth", b1 =>
-                        {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<DateTime>("Value")
-                                .HasColumnType("datetime2")
-                                .HasColumnName("DateOfBirth");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("AppUsers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("Address");
-
                     b.Navigation("Avatar");
 
-                    b.Navigation("DateOfBirth");
+                    b.Navigation("Email");
 
                     b.Navigation("Phone");
                 });
@@ -690,6 +1204,209 @@ namespace Capstone.Infrastructure.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.MatchingQuestion.Models.MatchingQuestion", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.QuestionDomain.MatchingQuestion.Entities.MatchingPair", "MatchingPairs", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("QuestionId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("Id", "QuestionId");
+
+                            b1.HasIndex("QuestionId");
+
+                            b1.ToTable("MatchingQuestionsMatchingPairs", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("QuestionId");
+
+                            b1.OwnsOne("Capstone.Domain.QuestionDomain.MatchingQuestion.ValueObjects.MatchingPairContentLeft", "Left", b2 =>
+                                {
+                                    b2.Property<Guid>("MatchingPairId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("MatchingPairQuestionId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("Id")
+                                        .HasColumnType("uniqueidentifier")
+                                        .HasColumnName("LeftId");
+
+                                    b2.Property<string>("Value")
+                                        .IsRequired()
+                                        .HasColumnType("nvarchar(max)")
+                                        .HasColumnName("LeftValue");
+
+                                    b2.HasKey("MatchingPairId", "MatchingPairQuestionId");
+
+                                    b2.ToTable("MatchingQuestionsMatchingPairs");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("MatchingPairId", "MatchingPairQuestionId");
+                                });
+
+                            b1.OwnsOne("Capstone.Domain.QuestionDomain.MatchingQuestion.ValueObjects.MatchingPairContentRight", "Right", b2 =>
+                                {
+                                    b2.Property<Guid>("MatchingPairId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("MatchingPairQuestionId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<Guid>("Id")
+                                        .HasColumnType("uniqueidentifier")
+                                        .HasColumnName("RightId");
+
+                                    b2.Property<string>("Value")
+                                        .IsRequired()
+                                        .HasColumnType("nvarchar(max)")
+                                        .HasColumnName("RightValue");
+
+                                    b2.HasKey("MatchingPairId", "MatchingPairQuestionId");
+
+                                    b2.ToTable("MatchingQuestionsMatchingPairs");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("MatchingPairId", "MatchingPairQuestionId");
+                                });
+
+                            b1.Navigation("Left")
+                                .IsRequired();
+
+                            b1.Navigation("Right")
+                                .IsRequired();
+                        });
+
+                    b.Navigation("MatchingPairs");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.MultiChoiceQuestion.Models.MultiChoiceQuestion", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.QuestionDomain.MultiChoiceQuestion.Entities.ChoiceMulti", "Choices", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("QuestionId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Content")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<bool>("IsCorrect")
+                                .HasColumnType("bit");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("Id", "QuestionId");
+
+                            b1.HasIndex("QuestionId");
+
+                            b1.ToTable("MultiChoiceQuestionsChoices", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("QuestionId");
+                        });
+
+                    b.Navigation("Choices");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.QuestionDomain.SingleChoiceQuestion.Models.SingleChoiceQuestion", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.QuestionDomain.SingleChoiceQuestion.Entities.ChoiceSingle", "Choices", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier")
+                                .HasColumnName("SingleChoiceQuestionChoiceId");
+
+                            b1.Property<Guid>("QuestionId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Content")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("CreatedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime?>("LastModified")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("LastModifiedBy")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("Id", "QuestionId");
+
+                            b1.HasIndex("QuestionId");
+
+                            b1.ToTable("SingleChoiceQuestionsChoices", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("QuestionId");
+                        });
+
+                    b.Navigation("Choices");
+                });
+
+            modelBuilder.Entity("Capstone.Domain.SubjectDomain.Models.TeacherSubject", b =>
+                {
+                    b.OwnsMany("Capstone.Domain.ClassDomain.ValueObjects.ClassId", "ClassIds", b1 =>
+                        {
+                            b1.Property<int>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("Id"));
+
+                            b1.Property<Guid>("TeacherSubjectId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("Value")
+                                .HasColumnType("uniqueidentifier")
+                                .HasColumnName("ClassId");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("TeacherSubjectId");
+
+                            b1.ToTable("TeacherSubjectClasses", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("TeacherSubjectId");
+                        });
+
+                    b.Navigation("ClassIds");
                 });
 #pragma warning restore 612, 618
         }

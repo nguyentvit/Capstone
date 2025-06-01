@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {}
+    "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {}
   },
   "projects": {
-    "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
+    "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj",
+        "projectUniqueName": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj",
         "projectName": "BuildingBlocks",
-        "projectPath": "E:\\Capstone\\src\\BuildingBlocks\\BuildingBlocks.csproj",
+        "projectPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\BuildingBlocks.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "E:\\Capstone\\src\\BuildingBlocks\\obj\\",
+        "outputPath": "E:\\Capstone\\Capstone.Server\\src\\BuildingBlocks\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -80,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

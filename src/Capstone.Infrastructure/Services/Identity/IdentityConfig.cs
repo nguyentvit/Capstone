@@ -6,9 +6,6 @@ namespace Capstone.Infrastructure.Services.Identity;
 
 public static class IdentityConfig
 {
-    public const string Admin = "admin";
-    public const string User = "user";
-    public const string Rescue = "rescue";
     public static IEnumerable<IdentityResource> IdentityResources =>
     new List<IdentityResource>()
             {

@@ -1,4 +1,4 @@
-namespace Capstone.Application.Identity.Commands.Logout;
+﻿namespace Capstone.Application.Identity.Commands.Logout;
 public class LogoutHandler(IConfiguration configuration) : ICommandHandler<LogoutCommand, LogoutResult>
 {
     public async Task<LogoutResult> Handle(LogoutCommand command, CancellationToken cancellationToken)
@@ -30,7 +30,7 @@ public class LogoutHandler(IConfiguration configuration) : ICommandHandler<Logou
         var tokenResponse = await client.SendAsync(token);
         if (!tokenResponse.IsSuccessStatusCode)
         {
-            throw new IdentityBadRequestException("Invalid Logout");
+            throw new IdentityBadRequestException("Đăng xuất không thành công");
         }
 
         return new LogoutResult(true);
