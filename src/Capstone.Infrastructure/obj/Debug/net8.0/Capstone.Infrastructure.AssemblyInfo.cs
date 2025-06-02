@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Capstone.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c22094f9f3f1f66d22e2aaea5604e78a1f42c56b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e32630900736ece749daf35944c1456a85c19ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("Capstone.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Capstone.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
