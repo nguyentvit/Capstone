@@ -37,3 +37,16 @@ E:\Capstone\Capstone.Server\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.d
 E:\Capstone\Capstone.Server\src\BuildingBlocks\obj\Debug\net8.0\refint\BuildingBlocks.dll
 E:\Capstone\Capstone.Server\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.pdb
 E:\Capstone\Capstone.Server\src\BuildingBlocks\obj\Debug\net8.0\ref\BuildingBlocks.dll
+C:\Capstone\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.deps.json
+C:\Capstone\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.dll
+C:\Capstone\Capstone\src\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.pdb
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.AssemblyReference.cache
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfoInputs.cache
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfo.cs
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.CoreCompileInputs.cache
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.sourcelink.json
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.dll
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\refint\BuildingBlocks.dll
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.pdb
+C:\Capstone\Capstone\src\BuildingBlocks\obj\Debug\net8.0\ref\BuildingBlocks.dll
