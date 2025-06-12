@@ -32,6 +32,18 @@ namespace Capstone.Domain.ExamSessionModule.Entities
             IsFree = isFree;
             IsDone = IsDone.Of(false);
         }
+        public bool IsNotStarted()
+        {
+            return StartAt == null;
+        }
+        public bool IsDoneStatus()
+        {
+            return SubmittedAt != null;
+        }
+        public bool IsExaming()
+        {
+            return StartAt != null && SubmittedAt == null;
+        }
         public static Participant OfStudent(StudentId studentId)
         {
             return new Participant(studentId, null, null, IsFree.Of(false));

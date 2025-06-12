@@ -3,6 +3,7 @@
     public enum ActionType
     {
         StartedExam = 0,
-        SubmittedExam = 1
+        SubmittedExam = 1,
+        ExitScreen = 2
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantActionByExamSessionId
 {
-    public record GetParticipantActionByExamSessionIdQuery(Guid UserId, Guid ExamSessionId, GetParticipantActionByExamSessionIdCondition Condition, PaginationRequest PaginationRequest) : IQuery<GetParticipantActionByExamSessionIdResult>;
-    public record GetParticipantActionByExamSessionIdResult(PaginationResult<GetParticipantActionByExamSessionIdDto> ParticipantActions);
-    public record GetParticipantActionByExamSessionIdDto(string UserName, GetParticipantActionByExamSessionIdCondition Status, bool IsFree);
+    public record GetParticipantActionByExamSessionIdQuery(Guid UserId, Guid ExamSessionId, GetParticipantActionByExamSessionIdCondition Condition) : IQuery<GetParticipantActionByExamSessionIdResult>;
+    public record GetParticipantActionByExamSessionIdResult(List<GetParticipantActionByExamSessionIdDto> ParticipantActions);
+    public record GetParticipantActionByExamSessionIdDto(string? StudentId, string UserName, bool IsFree);
     public enum GetParticipantActionByExamSessionIdCondition
     {
         All = 0,

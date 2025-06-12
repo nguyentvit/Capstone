@@ -1,10 +1,10 @@
 ﻿using Capstone.Domain.ExamSessionModule.ValueObjects;
 
-namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantActionByExamSessionId
+namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantsDoingByExamSessionId
 {
-    public class GetParticipantActionByExamSessionIdHandler(IApplicationDbContext dbContext) : IQueryHandler<GetParticipantActionByExamSessionIdQuery, GetParticipantActionByExamSessionIdResult>
+    public class GetParticipantsDoingByExamSessionIdHandler(IApplicationDbContext dbContext) : IQueryHandler<GetParticipantsDoingByExamSessionIdQuery, GetParticipantsDoingByExamSessionIdResult>
     {
-        public async Task<GetParticipantActionByExamSessionIdResult> Handle(GetParticipantActionByExamSessionIdQuery query, CancellationToken cancellationToken)
+        public async Task<GetParticipantsDoingByExamSessionIdResult> Handle(GetParticipantsDoingByExamSessionIdQuery query, CancellationToken cancellationToken)
         {
             var examSessionId = ExamSessionId.Of(query.ExamSessionId);
             var examSession = await dbContext.ExamSessions
@@ -19,16 +19,15 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantActionByE
             if (examSession.UserId.Value != query.UserId)
                 throw new AccessNotAllowException();
 
-            var condition = query.Condition;
-
             var examSessionQuery = await dbContext.ExamSessions
                                             .AsNoTracking()
                                             .Where(es => es.Id == examSessionId)
                                             .SelectMany(es => es.Participants)
+                                            .Where(p => p.Actions.Count > 0)
                                             .GroupJoin(dbContext.Students,
                                                         p => p.StudentId,
                                                         s => s.StudentId,
-                                                        (p, s) => new {p, s})
+                                                        (p, s) => new { p, s })
                                             .SelectMany(
                                                 t => t.s.DefaultIfEmpty(),
                                                 (t, student) => new
@@ -38,15 +37,19 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantActionByE
                                                 })
                                             .ToListAsync(cancellationToken);
 
-            var result = examSessionQuery.Where(es =>
-                                                condition == GetParticipantActionByExamSessionIdCondition.All ||
-                                                (condition == GetParticipantActionByExamSessionIdCondition.NotStarted && es.p.IsNotStarted()) ||
-                                                (condition == GetParticipantActionByExamSessionIdCondition.Done && es.p.IsDoneStatus()) ||
-                                                (condition == GetParticipantActionByExamSessionIdCondition.Examing && es.p.IsExaming()))
-                                        .Select(t => new GetParticipantActionByExamSessionIdDto((t.student != null) ? t.student.StudentId.Value : null, (t.student != null) ? t.student.UserName.Value : (t.p.FullName != null) ? t.p.FullName.Value : string.Empty, t.student == null))
-                                        .ToList();
+            var result = new List<GetParticipantsDoingByExamSessionIdDto>();
+            foreach (var es in examSessionQuery)
+            {
+                var userName = (es.student != null) ? es.student.UserName.Value : (es.p.FullName != null) ? (es.p.FullName.Value) : string.Empty;
+                
+                foreach (var action in es.p.Actions)
+                {
+                    result.Add(new GetParticipantsDoingByExamSessionIdDto(userName, action.ActionType, action.CreatedAt!.Value));
+                }
+            }
 
-            return new GetParticipantActionByExamSessionIdResult(result);
+            return new GetParticipantsDoingByExamSessionIdResult(result);
+
         }
     }
 }

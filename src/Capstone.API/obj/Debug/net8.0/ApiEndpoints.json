@@ -1246,19 +1246,31 @@
         "IsRequired": true
       },
       {
-        "Name": "PageIndex",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "condition",
         "Type": "Capstone.Application.ExamSessionModule.Queries.GetParticipantActionByExamSessionId.GetParticipantActionByExamSessionIdCondition",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.GetParticipantsDoingByExamSessionId\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/exam-sessions/{id}/doing",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
