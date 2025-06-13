@@ -36,14 +36,18 @@ namespace Capstone.Domain.ExamSessionModule.Models
         }
         public static ExamSession Of(ExamSessionName name, Date startTime, Date endTime, ExamSessionDuration duration, IsCodeBased isCodeBased, ExamId examId, UserId userId, ClassId? classId, List<Participant> participants)
         {
-            if (isCodeBased.Value == false)
+            if (isCodeBased.Value == true)
             {
-                return new ExamSession(name, startTime, endTime, duration, isCodeBased, null, examId, userId, classId, participants);
+                return new ExamSession(name, startTime, endTime, duration, isCodeBased, null, examId, userId, null, participants);
             }
             else
             {
-                return new ExamSession(name, startTime, endTime, duration, isCodeBased, ExamSessionCode.Generate(), examId, userId, null, participants);
+                return new ExamSession(name, startTime, endTime, duration, isCodeBased, ExamSessionCode.Generate(), examId, userId, classId, participants);
             }
+        }
+        public void AddParticipant(Participant participant)
+        {
+            _participants.Add(participant);
         }
     }
 }

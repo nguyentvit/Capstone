@@ -39,6 +39,7 @@ public static class DependencyInjection
         services.AddEmailSender(configuration);
         services.AddIdentity(configuration);
         services.AddRedis(configuration);
+        services.AddSignalR();
         services.AddScoped<IEmailSender, EmailSender>();
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         services.AddScoped<DataSeeder>();

@@ -6,6 +6,7 @@ using Duende.IdentityServer.EntityFramework.Mappers;
 using Duende.IdentityServer.EntityFramework.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Capstone.Infrastructure.Extensions;
+using Capstone.Application.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services
 var app = builder.Build();
 
 app.UseApiServices();
+
+app.MapHub<NotificationHub>("notification-hub");
 
 await app.InitializeDatabaseAsync();
 

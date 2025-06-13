@@ -1,5 +1,6 @@
 using System.Reflection;
 using BuildingBlocks.Behaviors;
+using Capstone.Application.Interface.Services;
 using Microsoft.Extensions.DependencyInjection;
 using QuestPDF.Infrastructure;
 
@@ -18,6 +19,7 @@ public static class DependencyInjection
         QuestPDF.Settings.License = LicenseType.Community;
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddScoped<ICacheRepository, CacheRepository>();
         return services;
     } 
 }
