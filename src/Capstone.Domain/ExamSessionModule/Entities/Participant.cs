@@ -67,9 +67,19 @@ namespace Capstone.Domain.ExamSessionModule.Entities
         }
         public void SubmitAnswer(QuestionId questionId, object rawAnswerObject)
         {
+            var dateNow = DateTime.UtcNow;
             var json = JsonConvert.SerializeObject(rawAnswerObject);
-            var answer = ParticipantAnswer.Of(questionId, json);
+
+            var totalDuration = _answers
+                                .Select(a => a.Duration.Value)
+                                .Aggregate(TimeSpan.Zero, (acc, next) => acc + next);
+
+            var duration = dateNow - StartAt!.Value - totalDuration;
+
+            var answer = ParticipantAnswer.Of(questionId, json, duration);
+
             var existing = _answers.FirstOrDefault(a => a.QuestionId == questionId);
+            
             if (existing != null)
             {
                 _answers.Remove(existing);
@@ -77,7 +87,7 @@ namespace Capstone.Domain.ExamSessionModule.Entities
 
             _answers.Add(answer);
         }
-        public void SubmitExam()
+        public void SubmitExam(Dictionary<QuestionId, double> Scores)
         {
             if (IsDone.Value)
                 throw new DomainException("Bài thi đã hoàn thành");
@@ -85,10 +95,24 @@ namespace Capstone.Domain.ExamSessionModule.Entities
             SubmittedAt = Date.Of(DateTime.UtcNow);
             IsDone = IsDone.Of(true);
 
-            var score = _answers.Sum(a => a.Score.Value);
-            Score = Score.Of(score);
+            foreach (var key in Scores.Keys)
+            {
+                var answer = _answers.FirstOrDefault(a => a.QuestionId == key);
+                if (answer != null)
+                {
+                    answer.Grade(Scores[key]);
+                }
+            }
 
             AddAction(ActionType.SubmittedExam);
+        }
+        public void Grade(QuestionId questionId, double score)
+        {
+            var answer = _answers.FirstOrDefault(a => a.QuestionId == questionId);
+            if (answer != null)
+            {
+                answer.Grade(score);
+            }
         }
     }
 }

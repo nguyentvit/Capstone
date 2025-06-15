@@ -101,6 +101,12 @@ namespace Capstone.Infrastructure.Data.Configurations
                     dbIsLastVersion => IsLastVersion.Of(dbIsLastVersion)
                 );
 
+            builder.Property(q => q.Score)
+                .HasConversion(
+                    score => score.Value,
+                    dbScore => ScoreEvaluate.Of(dbScore)
+                )
+                .HasDefaultValue(ScoreEvaluate.Of(5));
         }
     }
 }

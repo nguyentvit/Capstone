@@ -93,7 +93,6 @@ namespace Capstone.Application.Extensions
 
                     double score = (double)correctSelected / totalCorrect;
 
-                    // Trừ điểm nếu chọn sai
                     if (incorrectSelected > 0)
                         score -= ((double)incorrectSelected / userAnswer.Count);
 
@@ -118,7 +117,7 @@ namespace Capstone.Application.Extensions
                     return Math.Round((double)correctCount / totalPairs, 2);
 
                 case EssayQuestion eq:
-                    return -1.0;
+                    return 0;
             }
 
             return 0.0;

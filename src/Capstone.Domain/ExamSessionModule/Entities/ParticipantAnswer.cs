@@ -10,16 +10,18 @@ namespace Capstone.Domain.ExamSessionModule.Entities
         public AnswerRaw AnswerRaw { get; private set; } = default!;
         public Score? Score { get; private set; }
         public GradingStatus GradingStatus { get; private set; } = default!;
+        public Duration Duration { get; private set; } = default!;
         private ParticipantAnswer() { }
-        private ParticipantAnswer(QuestionId questionId, AnswerRaw answerRaw)
+        private ParticipantAnswer(QuestionId questionId, AnswerRaw answerRaw, Duration duration)
         {
             Id = ParticipantAnswerId.Of(Guid.NewGuid());
             QuestionId = questionId;
             AnswerRaw = answerRaw;
+            Duration = duration;
         }
-        public static ParticipantAnswer Of(QuestionId questionId, string answer)
+        public static ParticipantAnswer Of(QuestionId questionId, string answer, TimeSpan duration)
         {
-            return new ParticipantAnswer(questionId, AnswerRaw.Of(answer));
+            return new ParticipantAnswer(questionId, AnswerRaw.Of(answer), Duration.Of(duration));
         }
         public void Grade(double score)
         {

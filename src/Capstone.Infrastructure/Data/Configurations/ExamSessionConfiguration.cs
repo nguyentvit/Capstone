@@ -87,6 +87,18 @@ namespace Capstone.Infrastructure.Data.Configurations
             builder.Property(e => e.ClassId)
                 .HasConversion(classIdConverter);
 
+            builder.Property(e => e.IsDone)
+                .HasConversion(
+                    isDone => isDone.Value,
+                    dbIsDone => IsDone.Of(dbIsDone)
+                );
+
+            builder.Property(e => e.IsClosePoint)
+                .HasConversion(
+                    isClosePoint => isClosePoint.Value,
+                    dbIsClosePoint => IsClosePoint.Of(dbIsClosePoint)
+                );
+
         }
         public static void ConfigureParticipantExamSessionTable(EntityTypeBuilder<ExamSession> builder)
         {
@@ -205,6 +217,12 @@ namespace Capstone.Infrastructure.Data.Configurations
                         .HasConversion(
                         status => status.ToString(),
                         dbStatus => (GradingStatus)Enum.Parse(typeof(GradingStatus), dbStatus)
+                        );
+
+                    aws.Property(aw => aw.Duration)
+                        .HasConversion(
+                            duration => duration.Value,
+                            dbDuration => Duration.Of(dbDuration)
                         );
                 });
 

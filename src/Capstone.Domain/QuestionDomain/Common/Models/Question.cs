@@ -19,6 +19,7 @@ namespace Capstone.Domain.QuestionDomain.Common.Models
         public QuestionId? BeforeQuestionId { get; private set; }
         public QuestionId RootId { get; private set; } = default!;
         public IsLastVersion IsLastVersion { get; private set; } = default!;
+        public ScoreEvaluate Score { get; private set; }
         protected Question() { }
         protected Question(QuestionTitle title, QuestionContent content, QuestionDifficulty difficulty, QuestionType type, UserId userId, ChapterId? chapterId)
         {
@@ -35,6 +36,7 @@ namespace Capstone.Domain.QuestionDomain.Common.Models
             RootId = Id;
             BeforeQuestionId = null;
             IsLastVersion = IsLastVersion.Of(true);
+            Score = ScoreEvaluate.Of(5);
         }
         protected void SetVersioning(QuestionId rootId, QuestionId beforeQuestionId)
         {

@@ -1,6 +1,7 @@
 ﻿using Capstone.Domain.Common.Exceptions;
 using Capstone.Domain.ExamSessionModule.ValueObjects;
 using Capstone.Domain.ExamTemplateModule.Models;
+using Capstone.Domain.QuestionDomain.Common.ValueObjects;
 
 namespace Capstone.Application.StudentDomain.Commands.SubmitExamSession
 {
@@ -104,7 +105,8 @@ namespace Capstone.Application.StudentDomain.Commands.SubmitExamSession
 
                 score += percentage * pointConfig.PointPerCorrect;
             }
-            examSession.Participants.SubmitExam();
+            var scores = new Dictionary<QuestionId, double>();
+            examSession.Participants.SubmitExam(scores);
 
             await dbContext.SaveChangesAsync(cancellationToken);
 

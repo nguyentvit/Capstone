@@ -4,6 +4,7 @@
     {
         StartedExam = 0,
         SubmittedExam = 1,
-        ExitScreen = 2
+        ExitScreen = 2,
+        ClickOutSize = 3
     }
 }

@@ -47,8 +47,8 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantsDoingByE
                     result.Add(new GetParticipantsDoingByExamSessionIdDto(userName, action.ActionType, action.CreatedAt!.Value));
                 }
             }
-
-            return new GetParticipantsDoingByExamSessionIdResult(result);
+            var rs = result.OrderByDescending(r => r.CreatedAt).ToList();
+            return new GetParticipantsDoingByExamSessionIdResult(rs);
 
         }
     }

@@ -49,9 +49,10 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
                                                         t.q,
                                                         student
                                                     })
-                                               .Where(t => t.q.Type == QuestionType.EssayQuestion);
+                                               .Where(t => t.q.Type == QuestionType.EssayQuestion && t.Participants.IsDone == IsDone.Of(true));
 
             var totalCount = await essayQuestionsQuery.CountAsync(cancellationToken);
+
             var result = await essayQuestionsQuery
                                                 .Skip((pageIndex - 1) * pageSize)
                                                 .Take(pageSize)
@@ -65,15 +66,21 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
                                                     t.q.Content.Value,
                                                     t.Answers.GradingStatus,
                                                     t.Answers.AnswerRaw.Value,
-                                                    (t.Participants.Score != null) ? t.Participants.Score.Value : null
+                                                    (t.Answers.Score != null) ? t.Answers.Score.Value : null
                                                     ))
                                                 .ToListAsync(cancellationToken);
+
+            var rs = result.Select(t =>
+            {
+                var answerTrueFalse = JsonConvert.DeserializeObject<EssayAnswer>(t.Answer);
+                return new GetEssayQuestionsByExamSessionIdDto(t.ParticipantId, t.StudentId, t.UserName, t.IsFree, t.QuestionId, t.QuestionTitle, t.QuestionContent, t.GradingStatus, answerTrueFalse!.Answer, t.Score);
+            }).ToList();
 
             return new GetEssayQuestionsByExamSessionIdResult(new PaginationResult<GetEssayQuestionsByExamSessionIdDto>(
                 pageIndex,
                 pageSize,
                 totalCount,
-                result
+                rs
                 ));
         }
     }

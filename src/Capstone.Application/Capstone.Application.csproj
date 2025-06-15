@@ -13,10 +13,6 @@
     <PackageReference Include="QuestPDF" Version="2025.4.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="FreeParticipant\Commands\SubmitExamSession\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

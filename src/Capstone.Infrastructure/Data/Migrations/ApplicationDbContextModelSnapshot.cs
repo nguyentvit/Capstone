@@ -145,7 +145,13 @@ namespace Capstone.Infrastructure.Data.Migrations
                     b.Property<Guid>("ExamId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("IsClosePoint")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsCodeBased")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDone")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastModified")
@@ -332,6 +338,11 @@ namespace Capstone.Infrastructure.Data.Migrations
 
                     b.Property<Guid>("RootId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Score")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(5);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -941,6 +952,9 @@ namespace Capstone.Infrastructure.Data.Migrations
 
                                     b2.Property<string>("CreatedBy")
                                         .HasColumnType("nvarchar(max)");
+
+                                    b2.Property<TimeSpan>("Duration")
+                                        .HasColumnType("time");
 
                                     b2.Property<string>("GradingStatus")
                                         .IsRequired()

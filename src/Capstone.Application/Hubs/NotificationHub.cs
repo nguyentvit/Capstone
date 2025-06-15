@@ -29,9 +29,23 @@ namespace Capstone.Application.Hubs
                                          .Select(t => t.UserId.Value)
                                          .FirstOrDefaultAsync();
 
-            var user = await cache.GetUser(Guid.NewGuid());
+            var t = await dbContext.ExamSessions
+                                          .AsNoTracking()
+                                          .SelectMany(es => es.Participants)
+                                          .Where(p => p.Id == participantId)
+                                          .GroupJoin(dbContext.Students,
+                                          p => p.StudentId,
+                                          s => s.StudentId,
+                                          (p, s) => new { p, s })
+                                          .SelectMany(t => t.s.DefaultIfEmpty(), (t, s) => new { t.p, s })
+                                          .FirstOrDefaultAsync();
 
-            await Clients.Client(user.ConnectionId).SendAsync("ReceiveStatus", new { PId, action });
+            var un = (t!.s != null) ? t.s.UserName.Value : (t.p.FullName != null) ? t.p.FullName.Value : string.Empty;
+            
+
+            var user = await cache.GetUser(ownerId);
+
+            await Clients.Client(user.ConnectionId).SendAsync("ReceiveStatus", new { PId, action, DateTime.UtcNow, un });
         }
         public override async Task OnDisconnectedAsync(Exception? exception)
         {

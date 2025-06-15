@@ -19,6 +19,8 @@ namespace Capstone.Domain.ExamSessionModule.Models
         public ExamId ExamId { get; private set; } = default!;
         public UserId UserId { get; private set; } = default!;
         public ClassId? ClassId { get; private set; }
+        public IsDone IsDone { get; private set; } = default!;
+        public IsClosePoint IsClosePoint { get; private set; } = default!;
         private ExamSession() { }
         private ExamSession(ExamSessionName name, Date startTime, Date endTime, ExamSessionDuration duration, IsCodeBased isCodeBased, ExamSessionCode? code, ExamId examId, UserId userId, ClassId? classId, List<Participant> participants)
         {
@@ -33,6 +35,8 @@ namespace Capstone.Domain.ExamSessionModule.Models
             UserId = userId;
             ClassId = classId;
             _participants = participants;
+            IsDone = IsDone.Of(false);
+            IsClosePoint = IsClosePoint.Of(false);
         }
         public static ExamSession Of(ExamSessionName name, Date startTime, Date endTime, ExamSessionDuration duration, IsCodeBased isCodeBased, ExamId examId, UserId userId, ClassId? classId, List<Participant> participants)
         {
