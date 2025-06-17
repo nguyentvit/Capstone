@@ -3,6 +3,7 @@
     public enum GradingStatus
     {
         NotGraded = 0,
-        Graded = 1
+        Graded = 1,
+        Review = 2
     }
 }

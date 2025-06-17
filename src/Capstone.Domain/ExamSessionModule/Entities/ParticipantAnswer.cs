@@ -11,6 +11,8 @@ namespace Capstone.Domain.ExamSessionModule.Entities
         public Score? Score { get; private set; }
         public GradingStatus GradingStatus { get; private set; } = default!;
         public Duration Duration { get; private set; } = default!;
+        public IsReport IsReport { get; private set; } = default!;
+        public IsProcess IsProcess { get; private set; } = default!;
         private ParticipantAnswer() { }
         private ParticipantAnswer(QuestionId questionId, AnswerRaw answerRaw, Duration duration)
         {
@@ -18,6 +20,8 @@ namespace Capstone.Domain.ExamSessionModule.Entities
             QuestionId = questionId;
             AnswerRaw = answerRaw;
             Duration = duration;
+            IsReport = IsReport.Of(true);
+            IsProcess = IsProcess.Of(false);
         }
         public static ParticipantAnswer Of(QuestionId questionId, string answer, TimeSpan duration)
         {
@@ -27,6 +31,15 @@ namespace Capstone.Domain.ExamSessionModule.Entities
         {
             Score = Score.Of(score);
             GradingStatus = GradingStatus.Graded;
+        }
+        public void AddReport()
+        {
+            IsReport = IsReport.Of(true);
+        }
+        public void ProcessReport(double score)
+        {
+            IsProcess = IsProcess.Of(true);
+            Score = Score.Of(score);
         }
     }
 }

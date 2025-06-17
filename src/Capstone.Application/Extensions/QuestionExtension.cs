@@ -122,5 +122,63 @@ namespace Capstone.Application.Extensions
 
             return 0.0;
         }
+        public static QuestionBaseWithAnswerDto ConvertToQuestionWithAnswerDto(Question question, string rawAnswer, double score)
+        {
+            var questionDto = new QuestionBaseWithAnswerDto
+            {
+                Id = question.Id.Value,
+                Title = question.Title.Value,
+                Content = question.Content.Value,
+                Difficulty = (int)question.Difficulty,
+                Type = question.Type.ToString(),
+                UserId = question.UserId.Value,
+                Score = score
+            };
+
+            switch (question)
+            {
+                case TrueFalseQuestion tf:
+                    var answerTrueFalse = JsonConvert.DeserializeObject<TrueFalseAnswer>(rawAnswer);
+                    questionDto.TrueFalseQuestionDto = new TrueFalseQuestionWithAnswerDto
+                    {
+                        IsTrueAnswer = tf.IsTrueAnswer.Value,
+                        Answer = answerTrueFalse
+                    };
+                    break;
+                case SingleChoiceQuestion sc:
+                    var answerSingleChoice = JsonConvert.DeserializeObject<SingleChoiceAnswer>(rawAnswer);
+                    questionDto.SingleChoiceQuestionDto = new SingleChoiceQuestionWithAnswerDto
+                    {
+                        Choices = sc.Choices.Select(c => new SingleChoiceQuestionChoiceDto(c.Id.Value, c.Content.Value)).ToList(),
+                        CorrectAnswerId = sc.CorrectAnswerId.Value,
+                        Answer = answerSingleChoice
+                    };
+                    break;
+                case MultiChoiceQuestion mc:
+                    var answerMulti = JsonConvert.DeserializeObject<MultiChoiceAnswer>(rawAnswer);
+                    questionDto.MultiChoiceQuestionDto = new MultiChoiceQuestionWithAnswerDto
+                    {
+                        Choices = mc.Choices.Select(c => new MultiChoiceQuestionChoiceWithAnswerDto(c.Id.Value, c.Content.Value, c.IsCorrect.Value)).ToList(),
+                        Answer = answerMulti
+                    };
+                    break;
+                case MatchingQuestion mq:
+                    var answerMatching = JsonConvert.DeserializeObject<MatchingPairAnswer>(rawAnswer);
+                    questionDto.MatchingQuestionDto = new MatchingQuestionWithAnswerDto
+                    {
+                        MatchingPairs = mq.MatchingPairs.Select(p => new MatchingQuestionDtoMatchingPairWithAnswer(p.Left.Value, p.Right.Value, p.Left.Id, p.Right.Id)).ToList(),
+                        Answer = answerMatching
+                    };
+                    break;
+                case EssayQuestion eq:
+                    var essayAnswer = JsonConvert.DeserializeObject<EssayAnswer>(rawAnswer);
+                    questionDto.EssayQuestionDto = new EssayQuestionWithAnswerDto
+                    {
+                        Answer = essayAnswer
+                    };
+                    break;
+            }
+            return questionDto;
+        }
     }
 }

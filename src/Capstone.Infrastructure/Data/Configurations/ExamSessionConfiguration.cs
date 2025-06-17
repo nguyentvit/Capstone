@@ -224,6 +224,18 @@ namespace Capstone.Infrastructure.Data.Configurations
                             duration => duration.Value,
                             dbDuration => Duration.Of(dbDuration)
                         );
+
+                    aws.Property(aw => aw.IsReport)
+                        .HasConversion(
+                            isReport => isReport.Value,
+                            dbIsReport => IsReport.Of(dbIsReport)
+                        );
+
+                    aws.Property(aw => aw.IsProcess)
+                        .HasConversion(
+                            isProcess => isProcess.Value,
+                            dbIsProcess => IsProcess.Of(dbIsProcess)
+                        );
                 });
 
                 ps.OwnsMany(p => p.Actions, ats =>
