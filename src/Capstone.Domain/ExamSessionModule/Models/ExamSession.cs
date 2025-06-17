@@ -53,5 +53,9 @@ namespace Capstone.Domain.ExamSessionModule.Models
         {
             _participants.Add(participant);
         }
+        public void ClosePoint()
+        {
+            IsClosePoint = IsClosePoint.Of(true);
+        }
     }
 }

@@ -20,16 +20,18 @@ namespace Capstone.Domain.ExamSessionModule.Entities
             QuestionId = questionId;
             AnswerRaw = answerRaw;
             Duration = duration;
-            IsReport = IsReport.Of(true);
+            IsReport = IsReport.Of(false);
             IsProcess = IsProcess.Of(false);
         }
         public static ParticipantAnswer Of(QuestionId questionId, string answer, TimeSpan duration)
         {
             return new ParticipantAnswer(questionId, AnswerRaw.Of(answer), Duration.Of(duration));
         }
-        public void Grade(double score)
+        public void Grade(double? score)
         {
-            Score = Score.Of(score);
+            if (score == null) return;
+
+            Score = Score.Of(score.Value);
             GradingStatus = GradingStatus.Graded;
         }
         public void AddReport()

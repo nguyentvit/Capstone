@@ -53,7 +53,7 @@ namespace Capstone.Application.Extensions
             }
             return questionDto;
         }
-        public static double CalculateCorrectnessPercentage(Question question, string rawAnswer)
+        public static double? CalculateCorrectnessPercentage(Question question, string rawAnswer)
         {
             switch (question)
             {
@@ -117,7 +117,7 @@ namespace Capstone.Application.Extensions
                     return Math.Round((double)correctCount / totalPairs, 2);
 
                 case EssayQuestion eq:
-                    return 0;
+                    return null;
             }
 
             return 0.0;

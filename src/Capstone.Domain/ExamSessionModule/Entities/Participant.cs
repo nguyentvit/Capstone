@@ -87,7 +87,7 @@ namespace Capstone.Domain.ExamSessionModule.Entities
 
             _answers.Add(answer);
         }
-        public void SubmitExam(Dictionary<QuestionId, double> Scores)
+        public void SubmitExam(Dictionary<QuestionId, double?> Scores)
         {
             if (IsDone.Value)
                 throw new DomainException("Bài thi đã hoàn thành");

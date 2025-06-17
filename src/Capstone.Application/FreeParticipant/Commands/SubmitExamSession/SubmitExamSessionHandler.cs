@@ -68,7 +68,7 @@ namespace Capstone.Application.FreeParticipant.Commands.SubmitExamSession
 
             double score = 0;
 
-            var scores = new Dictionary<QuestionId, double>();
+            var scores = new Dictionary<QuestionId, double?>();
 
             foreach (var answer in examSession.Participants.Answers)
             {
@@ -91,9 +91,15 @@ namespace Capstone.Application.FreeParticipant.Commands.SubmitExamSession
                 if (!pointDictionary.TryGetValue(key, out var pointConfig))
                     throw new DomainException($"Không tìm thấy cấu hình điểm cho câu hỏi {question.Id}");
 
-                score += percentage * pointConfig.PointPerCorrect;
-
-                scores[question.Id] = percentage * pointConfig.PointPerCorrect;
+                if (percentage == null)
+                {
+                    scores[question.Id] = null;
+                }
+                else
+                {
+                    score += percentage.Value * pointConfig.PointPerCorrect;
+                    scores[question.Id] = percentage * pointConfig.PointPerCorrect;
+                }
             }
 
             examSession.Participants.SubmitExam(scores);

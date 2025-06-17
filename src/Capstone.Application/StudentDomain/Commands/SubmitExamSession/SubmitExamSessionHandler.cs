@@ -103,9 +103,9 @@ namespace Capstone.Application.StudentDomain.Commands.SubmitExamSession
                 if (!pointDictionary.TryGetValue(key, out var pointConfig))
                     throw new DomainException($"Không tìm thấy cấu hình điểm cho câu hỏi {question.Id}");
 
-                score += percentage * pointConfig.PointPerCorrect;
+                score += percentage!.Value * pointConfig.PointPerCorrect;
             }
-            var scores = new Dictionary<QuestionId, double>();
+            var scores = new Dictionary<QuestionId, double?>();
             examSession.Participants.SubmitExam(scores);
 
             await dbContext.SaveChangesAsync(cancellationToken);

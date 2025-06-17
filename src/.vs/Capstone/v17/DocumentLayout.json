@@ -1,7 +1,120 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Capstone\\Capstone\\src\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\Capstone\\Capstone.Server\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\queries\\getdetailexamresult\\getdetailexamresulthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\queries\\getdetailexamresult\\getdetailexamresulthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\queries\\getreportsbyexamsessionid\\getreportsbyexamsessionidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\queries\\getreportsbyexamsessionid\\getreportsbyexamsessionidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|e:\\capstone\\capstone.server\\src\\capstone.api\\endpoints\\teacherendpoint\\getreportsbyexamsessionid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|solutionrelative:capstone.api\\endpoints\\teacherendpoint\\getreportsbyexamsessionid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|e:\\capstone\\capstone.server\\src\\capstone.api\\endpoints\\studentendpoint\\addreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|solutionrelative:capstone.api\\endpoints\\studentendpoint\\addreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|e:\\capstone\\capstone.server\\src\\capstone.domain\\examsessionmodule\\entities\\participantanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|solutionrelative:capstone.domain\\examsessionmodule\\entities\\participantanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\markessayquestion\\markessayquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\markessayquestion\\markessayquestionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|e:\\capstone\\capstone.server\\src\\capstone.domain\\examsessionmodule\\models\\examsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|solutionrelative:capstone.domain\\examsessionmodule\\models\\examsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|e:\\capstone\\capstone.server\\src\\capstone.api\\endpoints\\teacherendpoint\\closepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|solutionrelative:capstone.api\\endpoints\\teacherendpoint\\closepoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\closepoint\\closepointhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\closepoint\\closepointhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|e:\\capstone\\capstone.server\\src\\capstone.domain\\examsessionmodule\\entities\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4696DB1-57CA-43BB-A126-B484634A1EBB}|Capstone.Domain\\Capstone.Domain.csproj|solutionrelative:capstone.domain\\examsessionmodule\\entities\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\closepoint\\closepointcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\closepoint\\closepointcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\commands\\addreport\\addreporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\commands\\addreport\\addreporthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\commands\\addreport\\addreportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\commands\\addreport\\addreportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\queries\\getdetailexamresult\\getdetailexamresultquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\queries\\getdetailexamresult\\getdetailexamresultquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\commands\\joinexamsession\\joinexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\commands\\joinexamsession\\joinexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\commands\\joinexamsession\\joinexamsessioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\commands\\joinexamsession\\joinexamsessioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\queries\\getessayquestionsbyexamsessionid\\getessayquestionsbyexamsessionidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\queries\\getessayquestionsbyexamsessionid\\getessayquestionsbyexamsessionidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\queries\\getessayquestionsbyexamsessionid\\getessayquestionsbyexamsessionidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\queries\\getessayquestionsbyexamsessionid\\getessayquestionsbyexamsessionidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\studentdomain\\commands\\submitexamsession\\submitexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\studentdomain\\commands\\submitexamsession\\submitexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\freeparticipant\\commands\\submitexamsession\\submitexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\freeparticipant\\commands\\submitexamsession\\submitexamsessionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\freeparticipant\\commands\\submitexamsession\\submitexamsessioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\freeparticipant\\commands\\submitexamsession\\submitexamsessioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\extensions\\questionextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\extensions\\questionextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\markessayquestion\\markessayquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\markessayquestion\\markessayquestioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\joinexamsessionfree\\joinexamsessionfreecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\joinexamsessionfree\\joinexamsessionfreecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|e:\\capstone\\capstone.server\\src\\capstone.application\\examsessionmodule\\commands\\joinexamsessionfree\\joinexamsessionfreehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A6EE006-3FA6-45B4-8D1F-69B3956443ED}|Capstone.Application\\Capstone.Application.csproj|solutionrelative:capstone.application\\examsessionmodule\\commands\\joinexamsessionfree\\joinexamsessionfreehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|e:\\capstone\\capstone.server\\src\\capstone.api\\endpoints\\studentendpoint\\joinexamsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|solutionrelative:capstone.api\\endpoints\\studentendpoint\\joinexamsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|e:\\capstone\\capstone.server\\src\\capstone.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BAFE0A5D-009C-4FB1-81DB-ECE9BA2E702E}|Capstone.API\\Capstone.API.csproj|solutionrelative:capstone.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 564,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +131,331 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AddReportHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportHandler.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwCoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:40:49.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetReportsByExamSessionIdHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetReportsByExamSessionId\\GetReportsByExamSessionIdHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Queries\\GetReportsByExamSessionId\\GetReportsByExamSessionIdHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetReportsByExamSessionId\\GetReportsByExamSessionIdHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Queries\\GetReportsByExamSessionId\\GetReportsByExamSessionIdHandler.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwB0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:42:29.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClosePointHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:41:12.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetDetailExamResultHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:07:19.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClosePoint.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\TeacherEndpoint\\ClosePoint.cs",
+              "RelativeDocumentMoniker": "Capstone.API\\Endpoints\\TeacherEndpoint\\ClosePoint.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\TeacherEndpoint\\ClosePoint.cs",
+              "RelativeToolTip": "Capstone.API\\Endpoints\\TeacherEndpoint\\ClosePoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:49:16.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddReport.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\StudentEndpoint\\AddReport.cs",
+              "RelativeDocumentMoniker": "Capstone.API\\Endpoints\\StudentEndpoint\\AddReport.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\StudentEndpoint\\AddReport.cs",
+              "RelativeToolTip": "Capstone.API\\Endpoints\\StudentEndpoint\\AddReport.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:53:29.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetReportsByExamSessionId.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\TeacherEndpoint\\GetReportsByExamSessionId.cs",
+              "RelativeDocumentMoniker": "Capstone.API\\Endpoints\\TeacherEndpoint\\GetReportsByExamSessionId.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\TeacherEndpoint\\GetReportsByExamSessionId.cs",
+              "RelativeToolTip": "Capstone.API\\Endpoints\\TeacherEndpoint\\GetReportsByExamSessionId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:55:47.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AddReportCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Commands\\AddReport\\AddReportCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:40:47.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MarkEssayQuestionHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionHandler.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBYAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:24:15.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ClosePointCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\ClosePoint\\ClosePointCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:41:14.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Participant.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Entities\\Participant.cs",
+              "RelativeDocumentMoniker": "Capstone.Domain\\ExamSessionModule\\Entities\\Participant.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Entities\\Participant.cs",
+              "RelativeToolTip": "Capstone.Domain\\ExamSessionModule\\Entities\\Participant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:27:24.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "JoinExamSessionHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionHandler.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswCUAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:18:53.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "JoinExamSessionCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Commands\\JoinExamSession\\JoinExamSessionCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:17:13.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetDetailExamResultQuery.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultQuery.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultQuery.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultQuery.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Queries\\GetDetailExamResult\\GetDetailExamResultQuery.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:07:28.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GetEssayQuestionsByExamSessionIdQuery.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdQuery.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdQuery.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdQuery.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAADEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:25:20.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GetEssayQuestionsByExamSessionIdHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Queries\\GetEssayQuestionsByExamSessionId\\GetEssayQuestionsByExamSessionIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:35:14.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SubmitExamSessionCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:29:58.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "QuestionExtension.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Extensions\\QuestionExtension.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\Extensions\\QuestionExtension.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\Extensions\\QuestionExtension.cs",
+              "RelativeToolTip": "Capstone.Application\\Extensions\\QuestionExtension.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAcwHAAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:29:45.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SubmitExamSessionHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\StudentDomain\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\StudentDomain\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\StudentDomain\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAgwGsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:32:15.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SubmitExamSessionHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\FreeParticipant\\Commands\\SubmitExamSession\\SubmitExamSessionHandler.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAgwGgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:27:17.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "JoinExamSession.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\StudentEndpoint\\JoinExamSession.cs",
+              "RelativeDocumentMoniker": "Capstone.API\\Endpoints\\StudentEndpoint\\JoinExamSession.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\Endpoints\\StudentEndpoint\\JoinExamSession.cs",
+              "RelativeToolTip": "Capstone.API\\Endpoints\\StudentEndpoint\\JoinExamSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:20:55.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MarkEssayQuestionCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\MarkEssayQuestion\\MarkEssayQuestionCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:24:13.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "JoinExamSessionFreeHandler.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeHandler.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeHandler.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeHandler.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:17:41.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Capstone.API\\appsettings.json",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.API\\appsettings.json",
+              "RelativeToolTip": "Capstone.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-17T19:05:08.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "20250617190450_update-report-18.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs",
+              "RelativeDocumentMoniker": "Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs",
+              "RelativeToolTip": "Capstone.Infrastructure\\Data\\Migrations\\20250617190450_update-report-18.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:04:51.081Z",
+              "EditorCaption": ""
             }
           ]
         },
@@ -25,6 +463,10 @@
           "DockedWidth": 1660,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -39,11 +481,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:19:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:19:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             }
           ]
         },
@@ -54,6 +496,108 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "8a79e43f-f5c0-4dd7-957b-0b7ffd70677f",
+        "Display": 0,
+        "X": 316,
+        "Y": 227,
+        "Width": 1099,
+        "Height": 579,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "JoinExamSessionFreeCommand.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeCommand.cs",
+              "RelativeDocumentMoniker": "Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeCommand.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeCommand.cs",
+              "RelativeToolTip": "Capstone.Application\\ExamSessionModule\\Commands\\JoinExamSessionFree\\JoinExamSessionFreeCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:17:42.231Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "138d3052-de9c-4923-9127-42a8581fd41f",
+        "Display": 0,
+        "X": 438,
+        "Y": 154,
+        "Width": 1099,
+        "Height": 653,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ParticipantAnswer.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Entities\\ParticipantAnswer.cs",
+              "RelativeDocumentMoniker": "Capstone.Domain\\ExamSessionModule\\Entities\\ParticipantAnswer.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Entities\\ParticipantAnswer.cs",
+              "RelativeToolTip": "Capstone.Domain\\ExamSessionModule\\Entities\\ParticipantAnswer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:03:09.186Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "144258f4-0480-4d19-abac-fe920bde4f1b",
+        "Display": 0,
+        "X": 653,
+        "Y": 290,
+        "Width": 1099,
+        "Height": 653,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExamSession.cs",
+              "DocumentMoniker": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Models\\ExamSession.cs",
+              "RelativeDocumentMoniker": "Capstone.Domain\\ExamSessionModule\\Models\\ExamSession.cs",
+              "ToolTip": "E:\\Capstone\\Capstone.Server\\src\\Capstone.Domain\\ExamSessionModule\\Models\\ExamSession.cs",
+              "RelativeToolTip": "Capstone.Domain\\ExamSessionModule\\Models\\ExamSession.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwDkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T19:03:06.479Z",
+              "EditorCaption": ""
             }
           ]
         }

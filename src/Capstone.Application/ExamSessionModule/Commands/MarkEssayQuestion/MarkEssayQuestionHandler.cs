@@ -22,6 +22,9 @@ namespace Capstone.Application.ExamSessionModule.Commands.MarkEssayQuestion
             if (esp.es.IsDone.Value == true)
                 throw new BadRequestException("Kíp thi này đã chốt điểm, nên không thể chấm điểm");
 
+            if (esp.es.IsClosePoint.Value == true)
+                throw new BadRequestException("Kíp này đang trong thời gian phúc khảo, không thể chấm điểm");
+
             var participantAnswer = esp.p.Answers.FirstOrDefault(a => a.QuestionId == QuestionId.Of(command.QuestionId));
 
             if (participantAnswer == null)

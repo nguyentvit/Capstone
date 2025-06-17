@@ -34,6 +34,9 @@ namespace Capstone.Application.StudentDomain.Commands.JoinExamSession
             if (examSession.ExamSession.StartTime.Value > dateNow || examSession.ExamSession.EndTime.Value < dateNow)
                 throw new BadRequestException("Không nằm trong thời gian thi");
 
+            if (examSession.ExamSession.IsClosePoint.Value)
+                throw new BadRequestException("Bài thi này đã chốt điểm, không thể tham gia");
+
             var random = new Random();
 
             var examVersions = await dbContext.Exams
@@ -111,6 +114,7 @@ namespace Capstone.Application.StudentDomain.Commands.JoinExamSession
             await dbContext.SaveChangesAsync(cancellationToken);
 
             return new JoinExamSessionResult(
+                examSession.Participants.Id.Value,
                 versionInfo.Duration.Value,
                 versionInfo.Code.Value,
                 subjectName,

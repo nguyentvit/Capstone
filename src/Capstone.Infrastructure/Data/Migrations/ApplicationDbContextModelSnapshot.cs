@@ -960,6 +960,12 @@ namespace Capstone.Infrastructure.Data.Migrations
                                         .IsRequired()
                                         .HasColumnType("nvarchar(max)");
 
+                                    b2.Property<bool>("IsProcess")
+                                        .HasColumnType("bit");
+
+                                    b2.Property<bool>("IsReport")
+                                        .HasColumnType("bit");
+
                                     b2.Property<DateTime?>("LastModified")
                                         .HasColumnType("datetime2");
 

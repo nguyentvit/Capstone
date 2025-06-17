@@ -29,9 +29,9 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetReportsByExamSession
                 var isProcess = (query.IsProcess != null ) ? IsProcess.Of(query.IsProcess.Value) : null;
                 
                 var groupParticipant = examSession.Participants
-                                                  .Where(p => p.StudentId != null)
+                                                  .Where(p => p.StudentId != null && p.Answers.Any(a => a.IsReport.Value == true))
                                                   .GroupBy(p => new { p.StudentId, p.Id })
-                                                  .ToDictionary(p => p.Key, p => p.SelectMany(s => s.Answers).Where(a => isProcess == null || a.IsProcess.Value == isProcess.Value).ToList());
+                                                  .ToDictionary(p => p.Key, p => p.SelectMany(s => s.Answers).Where(a => (isProcess == null || a.IsProcess.Value == isProcess.Value) && a.IsReport.Value == true).ToList());
 
                 foreach (var key in groupParticipant.Keys)
                 {
