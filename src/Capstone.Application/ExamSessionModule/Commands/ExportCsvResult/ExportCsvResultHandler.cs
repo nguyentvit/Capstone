@@ -58,15 +58,27 @@ namespace Capstone.Application.ExamSessionModule.Commands.ExportCsvResult
                         });
                     });
 
-                    page.Footer()
-                        .AlignCenter()
-                        .Text(x =>
+                    page.Footer().Column(column =>
+                    {
+                        // Chỉ hiển thị chữ ký ở trang cuối cùng
+                        column.Item().ShowOnce().AlignRight().Text(text =>
+                        {
+                            text.Span("Giáo viên phụ trách").FontSize(12).Bold();
+                            text.Line("");
+                            text.Line("");
+                            text.Line(""); // cách 3 dòng
+                            text.Span(result.TeacherName).FontSize(12);
+                        });
+
+                        // Đánh số trang luôn ở cuối
+                        column.Item().AlignCenter().Text(x =>
                         {
                             x.Span("Trang ");
                             x.CurrentPageNumber();
                             x.Span(" / ");
                             x.TotalPages();
                         });
+                    });
                 });
             });
 

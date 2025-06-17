@@ -1,4 +1,7 @@
 ﻿using Capstone.Application.Interface.Services;
+using Capstone.Application.QuestionDomain.Commands.ImportCsvMatchingQuestion;
+using Capstone.Application.QuestionDomain.Commands.ImportCsvMultiChoiceQuestion;
+using Capstone.Application.QuestionDomain.Commands.ImportCsvSingleChoiceQuestion;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.Globalization;
@@ -19,7 +22,20 @@ namespace Capstone.Infrastructure.Services
 
             using var csv = new CsvReader(reader, config);
 
-            return csv.GetRecords<T>().ToList();
+            if (typeof(T) == typeof(ImportCsvSingleChoiceQuestionDto))
+            {
+                csv.Context.RegisterClassMap<ImportCsvSingleChoiceQuestionDtoMap>();
+            }
+            else if (typeof(T) == typeof(ImportCsvMultiChoiceQuestionDto))
+            {
+                csv.Context.RegisterClassMap<ImportCsvMultiChoiceQuestionDtoMap>();
+            }
+            else if (typeof(T) == typeof(ImportCsvMatchingQuestionDto))
+            {
+                csv.Context.RegisterClassMap<ImportCsvMatchingQuestionDtoMap>();
+            }
+
+                return csv.GetRecords<T>().ToList();
         }
 
         public void WriteCSV<T>(List<T> records)

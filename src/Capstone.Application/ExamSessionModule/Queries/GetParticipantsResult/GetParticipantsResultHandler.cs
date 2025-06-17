@@ -68,8 +68,17 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetParticipantsResult
                 }
                 result.Add(new GetParticipantsResultDto(studentId, userName, score, totalScore, isFree));
             }
+
+            var teacherName = await dbContext.Teachers
+                                             .AsNoTracking()
+                                             .Where(t => t.Id == es.UserId)
+                                             .Select(t => t.UserName.Value)
+                                             .FirstOrDefaultAsync(cancellationToken);
+
+            if (teacherName == null)
+                throw new TeacherNotFoundException(es.UserId.Value);
             
-            return new GetParticipantsResultResult(result);
+            return new GetParticipantsResultResult(result, teacherName);
         }
     }
 }

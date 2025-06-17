@@ -296,6 +296,141 @@
     ]
   },
   {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvEssayQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "chapters/{chapterId}/questions/essay/csv",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvEssayQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ImportMatchingQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "chapters/{chapterId}/questions/matching/csv",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ImportMatchingQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvMultiChoiceQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "chapters/{chapterId}/questions/multi-choice/csv",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvMultiChoiceQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvSingleChoiceQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "chapters/{chapterId}/questions/single-choice/csv",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvSingleChoiceQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvTrueFalseQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "chapters/{chapterId}/questions/true-false/csv",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chapterId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ImportCsvTrueFalseQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Capstone.API.Endpoints.AdminTeacherEndpoint.GetChapterById\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "chapters/{id}",
