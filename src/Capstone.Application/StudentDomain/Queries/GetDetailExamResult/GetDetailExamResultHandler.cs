@@ -28,7 +28,36 @@ namespace Capstone.Application.StudentDomain.Queries.GetDetailExamResult
 
             if (!participant.IsDone.Value)
                 throw new BadRequestException("Bạn chỉ có thể xem khi bài thi đã hoàn thành");
-            throw new NotImplementedException();
+
+            if (!examSession.IsClosePoint.Value)
+                throw new BadRequestException("Bạn chỉ có thể xem khi giảng viên đã chốt điểm");
+
+            var examVersionId = participant.ExamVersionId;
+            var examVersion = await dbContext.Exams.AsNoTracking()
+                                                   .SelectMany(e => e.ExamVersions)
+                                                   .Where(ev => ev.Id == examVersionId)
+                                                   .FirstOrDefaultAsync(cancellationToken);
+
+            if (examVersion == null)
+                throw new ExamVersionNotFoundException(examVersionId!.Value);
+
+            var result = new List<GetDetailExamResult>();
+
+            foreach (var examQuestion in examVersion.Questions.OrderBy(q => q.Order))
+            {
+                var question = await dbContext.Questions.AsNoTracking()
+                                                        .Where(q => q.Id == examQuestion.QuestionId)
+                                                        .FirstOrDefaultAsync(cancellationToken);
+
+                if (question == null)
+                    throw new QuestionNotFoundException(examQuestion.QuestionId.Value);
+
+                var answer = participant.Answers.FirstOrDefault(a => a.QuestionId == question.Id);
+
+                result.Add(new GetDetailExamResult(QuestionExtension.ConvertToQuestionWithAnswerDto(question, (answer != null) ? answer.AnswerRaw.Value : null, (answer != null) ? answer.Score!.Value : null), (answer != null) ? answer.IsReport.Value : null, (answer != null) ? answer.IsProcess.Value : null));
+            }
+
+            return new GetDetailExamResultResult(result);
         }
     }
 }

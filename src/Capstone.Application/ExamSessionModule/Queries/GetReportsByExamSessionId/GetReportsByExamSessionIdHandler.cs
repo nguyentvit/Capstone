@@ -44,7 +44,7 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetReportsByExamSession
 
                     var answerList = groupParticipant[key];
 
-                    var list = new List<QuestionBaseWithAnswerDto>();
+                    var list = new List<GetReportsByExamSessionIdProcess>();
 
                     foreach (var answer in answerList)
                     {
@@ -55,7 +55,7 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetReportsByExamSession
                         if (question == null)
                             throw new QuestionNotFoundException(answer.QuestionId.Value);
 
-                        list.Add(QuestionExtension.ConvertToQuestionWithAnswerDto(question, answer.AnswerRaw.Value, answer.Score!.Value));
+                        list.Add(new GetReportsByExamSessionIdProcess(QuestionExtension.ConvertToQuestionWithAnswerDto(question, answer.AnswerRaw.Value, answer.Score!.Value), answer.IsProcess.Value));
                     }
 
                     result.Add(new GetReportsByExamSessionIdDto(participant, studentId!.Value, userName!.Value, list));

@@ -57,5 +57,9 @@ namespace Capstone.Domain.ExamSessionModule.Models
         {
             IsClosePoint = IsClosePoint.Of(true);
         }
+        public void CloseExamSession()
+        {
+            IsDone = IsDone.Of(true);
+        }
     }
 }

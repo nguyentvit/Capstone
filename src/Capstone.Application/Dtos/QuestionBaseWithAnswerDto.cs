@@ -10,7 +10,7 @@ namespace Capstone.Application.Dtos
         public string Content { get; init; } = default!;
         public int Difficulty { get; init; }
         public string Type { get; init; } = default!;
-        public double Score { get; init; } = default!;
+        public double? Score { get; init; }
         [JsonIgnore]
         public Guid UserId { get; init; } = default!;
 

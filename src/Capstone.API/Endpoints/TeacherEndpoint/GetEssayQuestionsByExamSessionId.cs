@@ -6,11 +6,11 @@ namespace Capstone.API.Endpoints.TeacherEndpoint
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/teacher/exam-sessions/{sessionId}/essay-questions", async (ISender sender, IHttpContextAccessor httpContext, Guid sessionId, [AsParameters] PaginationRequest paginationRequest) =>
+            app.MapGet("/teacher/exam-sessions/{sessionId}/essay-questions", async (ISender sender, IHttpContextAccessor httpContext, Guid sessionId) =>
             {
                 var userId = httpContext.HttpContext!.GetUserIdFromJwt();
 
-                var query = new GetEssayQuestionsByExamSessionIdQuery(userId, sessionId, paginationRequest);
+                var query = new GetEssayQuestionsByExamSessionIdQuery(userId, sessionId);
 
                 var response = await sender.Send(query);
 

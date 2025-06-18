@@ -23,7 +23,9 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetExamSessionById
                                                                    t.es.IsCodeBased.Value,
                                                                    (t.es.Code != null) ? t.es.Code.Value : null,
                                                                    t.e.Id.Value,
-                                                                   t.e.Title.Value))
+                                                                   t.e.Title.Value,
+                                                                   t.es.IsDone.Value,
+                                                                   t.es.IsClosePoint.Value))
                                                                .FirstOrDefaultAsync(cancellationToken);
 
             if (examSession == null)

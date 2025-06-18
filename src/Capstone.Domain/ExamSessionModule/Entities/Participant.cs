@@ -114,5 +114,16 @@ namespace Capstone.Domain.ExamSessionModule.Entities
                 answer.Grade(score);
             }
         }
+        public void ProcessReport(QuestionId questionId, double score)
+        {
+            var answer = _answers.FirstOrDefault(a => a.QuestionId == questionId);
+            if (answer != null)
+            {
+                if (!answer.IsReport.Value)
+                    throw new DomainException("Câu hỏi này không được phúc khảo");
+
+                answer.ProcessReport(score);
+            }
+        }
     }
 }

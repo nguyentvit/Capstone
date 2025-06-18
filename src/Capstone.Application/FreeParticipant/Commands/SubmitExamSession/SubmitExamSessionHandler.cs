@@ -27,6 +27,20 @@ namespace Capstone.Application.FreeParticipant.Commands.SubmitExamSession
                 throw new BadRequestException("Bài thi chưa được bắt đầu");
 
             var questionIds = examSession.Participants.Answers.Select(a => a.QuestionId).ToList();
+
+            var exam = await dbContext.Exams.AsNoTracking()
+                                            .Where(e => e.Id == examSession.ExamSession.ExamId)
+                                            .Select(e => e.ExamVersions)
+                                            .FirstOrDefaultAsync(cancellationToken);
+
+            if (exam == null)
+                throw new ExamNotFoundException(examSession.ExamSession.ExamId.Value);
+
+            var examVersion = exam.First();
+
+            if (examVersion.Questions.Count != questionIds.Count)
+                throw new BadRequestException("Bạn phải trả lời hết tất cả câu hỏi mới được nộp bài");
+
             var questions = await dbContext.Questions
                                            .Where(q => questionIds.Any(id => id == q.Id))
                                            .ToListAsync(cancellationToken);

@@ -20,10 +20,7 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
             if (examSession.UserId.Value != query.UserId)
                 throw new AccessNotAllowException();
 
-            var pageIndex = query.PaginationRequest.PageIndex;
-            var pageSize = query.PaginationRequest.PageSize;
-
-            var essayQuestionsQuery = dbContext.ExamSessions
+            var essayQuestions1 = await dbContext.ExamSessions
                                                .AsNoTracking()
                                                .Where(es => es.Id == examSessionId)
                                                .SelectMany(es => es.Participants)
@@ -49,39 +46,93 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
                                                         t.q,
                                                         student
                                                     })
-                                               .Where(t => t.q.Type == QuestionType.EssayQuestion && t.Participants.IsDone == IsDone.Of(true));
+                                               .Where(t => t.q.Type == QuestionType.EssayQuestion && t.Participants.IsDone == IsDone.Of(true))
+                                               .ToListAsync();
 
-            var totalCount = await essayQuestionsQuery.CountAsync(cancellationToken);
+            var essayQuestions = await dbContext.ExamSessions
+                                               .AsNoTracking()
+                                               .Where(es => es.Id == examSessionId)
+                                               .SelectMany(es => es.Participants)
+                                               .SelectMany(p => p.Answers, (participants, answers) => new
+                                               {
+                                                   Participant = participants,
+                                                   Answers = answers
+                                               })
+                                               .Join(dbContext.Questions,
+                                                     t => t.Answers.QuestionId,
+                                                     q => q.Id,
+                                                     (t, q) => new { t.Participant, t.Answers, q })
+                                               .Where(t => t.q.Type == QuestionType.EssayQuestion && t.Participant.IsDone == IsDone.Of(true))
+                                               .ToListAsync();
 
-            var result = await essayQuestionsQuery
-                                                .Skip((pageIndex - 1) * pageSize)
-                                                .Take(pageSize)
-                                                .Select(t => new GetEssayQuestionsByExamSessionIdDto(
-                                                    t.Participants.Id.Value,
-                                                    (t.Participants.StudentId != null) ? t.Participants.StudentId.Value : null,
-                                                    (t.Participants.FullName != null) ? t.Participants.FullName.Value : (t.student != null ? t.student.UserName.Value : string.Empty),
-                                                    t.Participants.IsFree.Value,
-                                                    t.q.Id.Value,
-                                                    t.q.Title.Value,
-                                                    t.q.Content.Value,
-                                                    t.Answers.GradingStatus,
-                                                    t.Answers.AnswerRaw.Value,
-                                                    (t.Answers.Score != null) ? t.Answers.Score.Value : null
-                                                    ))
-                                                .ToListAsync(cancellationToken);
+            var groupParticipant = essayQuestions.GroupBy(p => p.Participant)
+                                                 .ToDictionary(p => p.Key, p => p.Select(a => new { a.q, a.Answers }).ToList());
 
-            var rs = result.Select(t =>
+            var result = new List<GetEssayQuestionsByExamSessionIdDto>();
+
+            foreach (var participant in groupParticipant.Keys)
             {
-                var answerTrueFalse = JsonConvert.DeserializeObject<EssayAnswer>(t.Answer);
-                return new GetEssayQuestionsByExamSessionIdDto(t.ParticipantId, t.StudentId, t.UserName, t.IsFree, t.QuestionId, t.QuestionTitle, t.QuestionContent, t.GradingStatus, answerTrueFalse!.Answer, t.Score);
-            }).ToList();
+                string userName = string.Empty;
+                if (participant.IsFree.Value)
+                {
+                    userName = participant.FullName!.Value;
+                }
+                else if (participant.StudentId != null)
+                {
+                    var un = await dbContext.Students.AsNoTracking()
+                                                       .Where(s => s.StudentId == participant.StudentId)
+                                                       .Select(s => s.UserName)
+                                                       .FirstOrDefaultAsync();
 
-            return new GetEssayQuestionsByExamSessionIdResult(new PaginationResult<GetEssayQuestionsByExamSessionIdDto>(
-                pageIndex,
-                pageSize,
-                totalCount,
-                rs
-                ));
+                    userName = (un != null) ? un.Value : string.Empty;
+                }
+
+                var value = groupParticipant[participant];
+                var b = new List<GetEssayQuestionsByExamSessionIdAnswer>();
+                foreach (var t in value)
+                {
+                    var answerTrueFalse = JsonConvert.DeserializeObject<EssayAnswer>(t.Answers.AnswerRaw.Value);
+                    var an = new GetEssayQuestionsByExamSessionIdAnswer(t.q.Id.Value, t.q.Title.Value, t.q.Content.Value, t.Answers.GradingStatus, answerTrueFalse!.Answer, (t.Answers.Score != null) ? t.Answers.Score.Value : null);
+                    b.Add(an);
+                }
+                result.Add(new GetEssayQuestionsByExamSessionIdDto(participant.Id.Value, (participant.StudentId != null) ? participant.StudentId.Value : null, userName, participant.IsFree.Value, b));
+            }
+
+            return new GetEssayQuestionsByExamSessionIdResult(result);
+
+            
+
+            //var totalCount = await essayQuestionsQuery.CountAsync(cancellationToken);
+
+            //var result = await essayQuestionsQuery
+            //                                    .Skip((pageIndex - 1) * pageSize)
+            //                                    .Take(pageSize)
+            //                                    .Select(t => new GetEssayQuestionsByExamSessionIdDto(
+            //                                        t.Participants.Id.Value,
+            //                                        (t.Participants.StudentId != null) ? t.Participants.StudentId.Value : null,
+            //                                        (t.Participants.FullName != null) ? t.Participants.FullName.Value : (t.student != null ? t.student.UserName.Value : string.Empty),
+            //                                        t.Participants.IsFree.Value,
+            //                                        t.q.Id.Value,
+            //                                        t.q.Title.Value,
+            //                                        t.q.Content.Value,
+            //                                        t.Answers.GradingStatus,
+            //                                        t.Answers.AnswerRaw.Value,
+            //                                        (t.Answers.Score != null) ? t.Answers.Score.Value : null
+            //                                        ))
+            //                                    .ToListAsync(cancellationToken);
+
+            //var rs = result.Select(t =>
+            //{
+            //    var answerTrueFalse = JsonConvert.DeserializeObject<EssayAnswer>(t.Answer);
+            //    return new GetEssayQuestionsByExamSessionIdDto(t.ParticipantId, t.StudentId, t.UserName, t.IsFree, t.QuestionId, t.QuestionTitle, t.QuestionContent, t.GradingStatus, answerTrueFalse!.Answer, t.Score);
+            //}).ToList();
+
+            //return new GetEssayQuestionsByExamSessionIdResult(new PaginationResult<GetEssayQuestionsByExamSessionIdDto>(
+            //    pageIndex,
+            //    pageSize,
+            //    totalCount,
+            //    rs
+            //    ));
         }
     }
 }

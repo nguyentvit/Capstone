@@ -122,7 +122,7 @@ namespace Capstone.Application.Extensions
 
             return 0.0;
         }
-        public static QuestionBaseWithAnswerDto ConvertToQuestionWithAnswerDto(Question question, string rawAnswer, double score)
+        public static QuestionBaseWithAnswerDto ConvertToQuestionWithAnswerDto(Question question, string? rawAnswer, double? score)
         {
             var questionDto = new QuestionBaseWithAnswerDto
             {
@@ -138,44 +138,94 @@ namespace Capstone.Application.Extensions
             switch (question)
             {
                 case TrueFalseQuestion tf:
-                    var answerTrueFalse = JsonConvert.DeserializeObject<TrueFalseAnswer>(rawAnswer);
-                    questionDto.TrueFalseQuestionDto = new TrueFalseQuestionWithAnswerDto
+                    if (string.IsNullOrEmpty(rawAnswer))
                     {
-                        IsTrueAnswer = tf.IsTrueAnswer.Value,
-                        Answer = answerTrueFalse
-                    };
+                        questionDto.TrueFalseQuestionDto = new TrueFalseQuestionWithAnswerDto
+                        {
+                            IsTrueAnswer = tf.IsTrueAnswer.Value
+                        };
+                    }
+                    else
+                    {
+                        var answerTrueFalse = JsonConvert.DeserializeObject<TrueFalseAnswer>(rawAnswer);
+                        questionDto.TrueFalseQuestionDto = new TrueFalseQuestionWithAnswerDto
+                        {
+                            IsTrueAnswer = tf.IsTrueAnswer.Value,
+                            Answer = answerTrueFalse
+                        };
+                    }
                     break;
                 case SingleChoiceQuestion sc:
-                    var answerSingleChoice = JsonConvert.DeserializeObject<SingleChoiceAnswer>(rawAnswer);
-                    questionDto.SingleChoiceQuestionDto = new SingleChoiceQuestionWithAnswerDto
+                    if (string.IsNullOrEmpty(rawAnswer))
                     {
-                        Choices = sc.Choices.Select(c => new SingleChoiceQuestionChoiceDto(c.Id.Value, c.Content.Value)).ToList(),
-                        CorrectAnswerId = sc.CorrectAnswerId.Value,
-                        Answer = answerSingleChoice
-                    };
+                        questionDto.SingleChoiceQuestionDto = new SingleChoiceQuestionWithAnswerDto
+                        {
+                            Choices = sc.Choices.Select(c => new SingleChoiceQuestionChoiceDto(c.Id.Value, c.Content.Value)).ToList(),
+                            CorrectAnswerId = sc.CorrectAnswerId.Value
+                        };
+                    }
+                    else
+                    {
+                        var answerSingleChoice = JsonConvert.DeserializeObject<SingleChoiceAnswer>(rawAnswer);
+                        questionDto.SingleChoiceQuestionDto = new SingleChoiceQuestionWithAnswerDto
+                        {
+                            Choices = sc.Choices.Select(c => new SingleChoiceQuestionChoiceDto(c.Id.Value, c.Content.Value)).ToList(),
+                            CorrectAnswerId = sc.CorrectAnswerId.Value,
+                            Answer = answerSingleChoice
+                        };
+                    }
                     break;
                 case MultiChoiceQuestion mc:
-                    var answerMulti = JsonConvert.DeserializeObject<MultiChoiceAnswer>(rawAnswer);
-                    questionDto.MultiChoiceQuestionDto = new MultiChoiceQuestionWithAnswerDto
+                    if (string.IsNullOrEmpty(rawAnswer))
                     {
-                        Choices = mc.Choices.Select(c => new MultiChoiceQuestionChoiceWithAnswerDto(c.Id.Value, c.Content.Value, c.IsCorrect.Value)).ToList(),
-                        Answer = answerMulti
-                    };
+                        questionDto.MultiChoiceQuestionDto = new MultiChoiceQuestionWithAnswerDto
+                        {
+                            Choices = mc.Choices.Select(c => new MultiChoiceQuestionChoiceWithAnswerDto(c.Id.Value, c.Content.Value, c.IsCorrect.Value)).ToList()
+                        };
+                    }
+                    else
+                    {
+                        var answerMulti = JsonConvert.DeserializeObject<MultiChoiceAnswer>(rawAnswer);
+                        questionDto.MultiChoiceQuestionDto = new MultiChoiceQuestionWithAnswerDto
+                        {
+                            Choices = mc.Choices.Select(c => new MultiChoiceQuestionChoiceWithAnswerDto(c.Id.Value, c.Content.Value, c.IsCorrect.Value)).ToList(),
+                            Answer = answerMulti
+                        };
+                    }
                     break;
                 case MatchingQuestion mq:
-                    var answerMatching = JsonConvert.DeserializeObject<MatchingPairAnswer>(rawAnswer);
-                    questionDto.MatchingQuestionDto = new MatchingQuestionWithAnswerDto
+                    if (string.IsNullOrEmpty(rawAnswer))
                     {
-                        MatchingPairs = mq.MatchingPairs.Select(p => new MatchingQuestionDtoMatchingPairWithAnswer(p.Left.Value, p.Right.Value, p.Left.Id, p.Right.Id)).ToList(),
-                        Answer = answerMatching
-                    };
+                        questionDto.MatchingQuestionDto = new MatchingQuestionWithAnswerDto
+                        {
+                            MatchingPairs = mq.MatchingPairs.Select(p => new MatchingQuestionDtoMatchingPairWithAnswer(p.Left.Value, p.Right.Value, p.Left.Id, p.Right.Id)).ToList()
+                        };
+                    }
+                    else
+                    {
+                        var answerMatching = JsonConvert.DeserializeObject<MatchingPairAnswer>(rawAnswer);
+                        questionDto.MatchingQuestionDto = new MatchingQuestionWithAnswerDto
+                        {
+                            MatchingPairs = mq.MatchingPairs.Select(p => new MatchingQuestionDtoMatchingPairWithAnswer(p.Left.Value, p.Right.Value, p.Left.Id, p.Right.Id)).ToList(),
+                            Answer = answerMatching
+                        };
+                    }
                     break;
                 case EssayQuestion eq:
-                    var essayAnswer = JsonConvert.DeserializeObject<EssayAnswer>(rawAnswer);
-                    questionDto.EssayQuestionDto = new EssayQuestionWithAnswerDto
+                    if (string.IsNullOrEmpty(rawAnswer))
                     {
-                        Answer = essayAnswer
-                    };
+                        questionDto.EssayQuestionDto = new EssayQuestionWithAnswerDto
+                        {
+                        };
+                    }
+                    else
+                    {
+                        var essayAnswer = JsonConvert.DeserializeObject<EssayAnswer>(rawAnswer);
+                        questionDto.EssayQuestionDto = new EssayQuestionWithAnswerDto
+                        {
+                            Answer = essayAnswer
+                        };
+                    }
                     break;
             }
             return questionDto;
