@@ -52,5 +52,13 @@ namespace Capstone.Domain.QuestionDomain.Common.Models
 
             IsLastVersion = IsLastVersion.Of(false);
         }
+        public void SetIsLastVersionIsTrue()
+        {
+            IsLastVersion = IsLastVersion.Of(true);
+        }
+        public void SetIsLastVersionIsFalsePublic()
+        {
+            IsLastVersion = IsLastVersion.Of(false);
+        }
     }
 }

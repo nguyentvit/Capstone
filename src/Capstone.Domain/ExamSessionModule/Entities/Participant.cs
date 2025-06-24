@@ -67,6 +67,12 @@ namespace Capstone.Domain.ExamSessionModule.Entities
         }
         public void SubmitAnswer(QuestionId questionId, object rawAnswerObject)
         {
+            var actionNotSubmit = new List<ActionType>() { ActionType.ExitScreen, ActionType.ClickOutSize };
+            var actionLast = _actions.Last();
+
+            if (actionLast != null && actionNotSubmit.Contains(actionLast.ActionType))
+                throw new DomainException("Trạng thái hiện tại của bạn không thể trả lời câu hỏi");
+
             var dateNow = DateTime.UtcNow;
             var json = JsonConvert.SerializeObject(rawAnswerObject);
 

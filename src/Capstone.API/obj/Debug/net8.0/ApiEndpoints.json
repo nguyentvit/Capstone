@@ -22,6 +22,33 @@
     ]
   },
   {
+    "ContainingType": "Capstone.API.Endpoints.AdminEndpoint.GetStudents\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "admin/students",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Capstone.API.Endpoints.AdminEndpoint.GetStudentById\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "admin/students/{id}",
@@ -907,6 +934,33 @@
     ]
   },
   {
+    "ContainingType": "Capstone.API.Endpoints.AdminTeacherEndpoint.UpdateEssayQuestion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "questions/essay-question/{id}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.AdminTeacherEndpoint.UpdateEssayQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Capstone.API.Endpoints.AdminTeacherEndpoint.AddMatchingQuestion\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "questions/matching-question",
@@ -1184,6 +1238,28 @@
     ]
   },
   {
+    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.GetExamDetailResult\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "student/exam-sessions/{examSessionId}/result",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "examSessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.JoinExamSession\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "student/exam-sessions/{id}/join",
@@ -1194,215 +1270,6 @@
       {
         "Name": "id",
         "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.SubmitExamSession\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{id}/submit",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AddAction\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/actions",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AddActionRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AnswerEssayQuestion\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/questions/{questionId}/essay",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "questionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AnswerEssayQuestionRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AnswerMatchingPairQuestion\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/questions/{questionId}/matching-pair",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "questionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AnswerMatchingPairQuestionRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AnswerMultiChoiceQuestion\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/questions/{questionId}/multi-choice",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "questionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AnswerMultiChoiceQuestionRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AnswerSingleChoiceQuestion\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/questions/{questionId}/single-choice",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "questionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AnswerSingleChoiceQuestionRequest",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Capstone.API.Endpoints.StudentEndpoint.AnswerTrueFalseQuestion\u002B\u003C\u003Ec",
-    "Method": "\u003CAddRoutes\u003Eb__0_0",
-    "RelativePath": "student/exam-sessions/{sessionId}/questions/{questionId}/true-false",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "questionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Capstone.API.Endpoints.StudentEndpoint.AnswerTrueFalseQuestionRequest",
         "IsRequired": true
       }
     ],
@@ -1521,6 +1388,43 @@
       {
         "Name": "PageSize",
         "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.GetStudentsAvailableToAddIntoClass\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/classes/{classId}/students/available",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "classId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "studentId",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -1666,6 +1570,28 @@
     "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ClosePoint\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "teacher/exam-sessions/{examSessionId}/close-point",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "examSessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.CloseExamSession\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/exam-sessions/{examSessionId}/done",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
@@ -1875,16 +1801,6 @@
         "Name": "sessionId",
         "Type": "System.Guid",
         "IsRequired": true
-      },
-      {
-        "Name": "PageIndex",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "PageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -2173,6 +2089,82 @@
       {
         "Name": "request",
         "Type": "Capstone.API.Endpoints.TeacherEndpoint.MarkEssayQuestionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.ProcessReport\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/participants/{participantId}/questions/{questionId}/process",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "participantId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Capstone.API.Endpoints.TeacherEndpoint.ProcessReportRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.AdminTeacherEndpoint.MarkLastVersion\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/questions/{questionId}/mark-last",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Capstone.API.Endpoints.TeacherEndpoint.GetQuestionVersionsByQuestionId\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "teacher/questions/{questionId}/versions",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

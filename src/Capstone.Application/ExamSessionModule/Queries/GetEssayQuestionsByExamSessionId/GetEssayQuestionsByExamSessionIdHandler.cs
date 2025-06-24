@@ -65,15 +65,16 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
                                                .Where(t => t.q.Type == QuestionType.EssayQuestion && t.Participant.IsDone == IsDone.Of(true))
                                                .ToListAsync();
 
-            var groupParticipant = essayQuestions.GroupBy(p => p.Participant)
+            var groupParticipant = essayQuestions.GroupBy(p => p.Participant.Id.Value)
                                                  .ToDictionary(p => p.Key, p => p.Select(a => new { a.q, a.Answers }).ToList());
 
             var result = new List<GetEssayQuestionsByExamSessionIdDto>();
 
-            foreach (var participant in groupParticipant.Keys)
+            foreach (var participantId in groupParticipant.Keys)
             {
                 string userName = string.Empty;
-                if (participant.IsFree.Value)
+                var participant = essayQuestions.Where(t => t.Participant.Id.Value == participantId).Select(t => t.Participant).FirstOrDefault();
+                if (participant!.IsFree.Value)
                 {
                     userName = participant.FullName!.Value;
                 }
@@ -87,7 +88,7 @@ namespace Capstone.Application.ExamSessionModule.Queries.GetEssayQuestionsByExam
                     userName = (un != null) ? un.Value : string.Empty;
                 }
 
-                var value = groupParticipant[participant];
+                var value = groupParticipant[participantId];
                 var b = new List<GetEssayQuestionsByExamSessionIdAnswer>();
                 foreach (var t in value)
                 {

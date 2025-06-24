@@ -1,4 +1,5 @@
 ﻿using Capstone.Application.ExamDomain.Commands.GenerateExamVersions;
+using Capstone.Application.ExamDomain.Commands.QuestionStatistics;
 
 namespace Capstone.API.Endpoints.TeacherEndpoint
 {
@@ -12,7 +13,7 @@ namespace Capstone.API.Endpoints.TeacherEndpoint
                 var userId = httpContext.HttpContext!.GetUserIdFromJwt();
 
                 var command = new GenerateExamVersionsCommand(userId, id, request.Count, request.OrderQuestion, request.IsAnswerShuffled);
-
+                //var command = new QuestionStatisticsCommand(userId, id, request.Count, request.OrderQuestion, request.IsAnswerShuffled);
                 var response = await sender.Send(command);
 
                 return Results.Ok(response);

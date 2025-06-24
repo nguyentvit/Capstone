@@ -287,6 +287,52 @@
         }
       }
     },
+    "/teacher/exam-sessions/{examSessionId}/done": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "examSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/teacher/exam-sessions/{examSessionId}/close-point": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "examSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/teacher/exams": {
       "post": {
         "tags": [
@@ -414,6 +460,29 @@
         }
       }
     },
+    "/teacher/exam-sessions/{examSessionId}/result-pdf": {
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "examSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/teacher/exams/{id}/generate": {
       "post": {
         "tags": [
@@ -515,24 +584,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "PageIndex",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
             }
           }
         ],
@@ -920,6 +971,131 @@
         }
       }
     },
+    "/teacher/exam-sessions/{examSessionId}/result": {
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "examSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/teacher/questions/{questionId}/versions": {
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/teacher/exam-sessions/{examSessionId}/reports": {
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "examSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "isProcess",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/teacher/classes/{classId}/students/available": {
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "classId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "PageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "studentId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/teacher/subjects/{id}": {
       "get": {
         "tags": [
@@ -943,14 +1119,14 @@
         }
       }
     },
-    "/student/exam-sessions/{sessionId}/actions": {
+    "/chapters/{chapterId}/questions/essay/csv": {
       "post": {
         "tags": [
           "Capstone.API"
         ],
         "parameters": [
           {
-            "name": "sessionId",
+            "name": "chapterId",
             "in": "path",
             "required": true,
             "schema": {
@@ -961,13 +1137,43 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/AddActionRequest"
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvEssayQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvEssayQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -976,14 +1182,266 @@
         }
       }
     },
-    "/student/exam-sessions/{sessionId}/questions/{questionId}/essay": {
+    "/chapters/{chapterId}/questions/multi-choice/csv": {
       "post": {
         "tags": [
           "Capstone.API"
         ],
         "parameters": [
           {
-            "name": "sessionId",
+            "name": "chapterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvMultiChoiceQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvMultiChoiceQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/chapters/{chapterId}/questions/single-choice/csv": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "chapterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvSingleChoiceQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvSingleChoiceQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/chapters/{chapterId}/questions/true-false/csv": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "chapterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvTrueFalseQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportCsvTrueFalseQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/chapters/{chapterId}/questions/matching/csv": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "chapterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportMatchingQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "request"
+                ],
+                "type": "object",
+                "properties": {
+                  "request": {
+                    "$ref": "#/components/schemas/ImportMatchingQuestionRequest"
+                  }
+                }
+              },
+              "encoding": {
+                "request": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/teacher/participants/{participantId}/questions/{questionId}": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1005,7 +1463,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AnswerEssayQuestionRequest"
+                "$ref": "#/components/schemas/MarkEssayQuestionRequest"
               }
             }
           },
@@ -1018,14 +1476,14 @@
         }
       }
     },
-    "/student/exam-sessions/{sessionId}/questions/{questionId}/matching-pair": {
+    "/teacher/participants/{participantId}/questions/{questionId}/process": {
       "post": {
         "tags": [
           "Capstone.API"
         ],
         "parameters": [
           {
-            "name": "sessionId",
+            "name": "participantId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1047,7 +1505,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AnswerMatchingPairQuestionRequest"
+                "$ref": "#/components/schemas/ProcessReportRequest"
               }
             }
           },
@@ -1060,14 +1518,14 @@
         }
       }
     },
-    "/student/exam-sessions/{sessionId}/questions/{questionId}/multi-choice": {
+    "/student/exam-sessions/{examSessionId}/questions/{questionId}/report": {
       "post": {
         "tags": [
           "Capstone.API"
         ],
         "parameters": [
           {
-            "name": "sessionId",
+            "name": "examSessionId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1085,16 +1543,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AnswerMultiChoiceQuestionRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1102,23 +1550,14 @@
         }
       }
     },
-    "/student/exam-sessions/{sessionId}/questions/{questionId}/single-choice": {
-      "post": {
+    "/student/exam-sessions/{examSessionId}/result": {
+      "get": {
         "tags": [
           "Capstone.API"
         ],
         "parameters": [
           {
-            "name": "sessionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "questionId",
+            "name": "examSessionId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1127,58 +1566,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AnswerSingleChoiceQuestionRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/student/exam-sessions/{sessionId}/questions/{questionId}/true-false": {
-      "post": {
-        "tags": [
-          "Capstone.API"
-        ],
-        "parameters": [
-          {
-            "name": "sessionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "questionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AnswerTrueFalseQuestionRequest"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1273,29 +1660,6 @@
         }
       }
     },
-    "/student/exam-sessions/{id}/submit": {
-      "post": {
-        "tags": [
-          "Capstone.API"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/identity/login": {
       "post": {
         "tags": [
@@ -1362,6 +1726,249 @@
         }
       }
     },
+    "/free/{participantId}/actions": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddActionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/questions/{questionId}/essay": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerEssayQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/questions/{questionId}/matching-pair": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerMatchingPairQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/questions/{questionId}/multi-choice": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerMultiChoiceQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/questions/{questionId}/single-choice": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerSingleChoiceQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/questions/{questionId}/true-false": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnswerTrueFalseQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/free/exam-sessions/{id}/join": {
       "post": {
         "tags": [
@@ -1388,6 +1995,29 @@
           },
           "required": true
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/free/{participantId}/submit": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "participantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1792,6 +2422,62 @@
         }
       }
     },
+    "/teacher/questions/{questionId}/mark-last": {
+      "post": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "questionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/questions/essay-question/{id}": {
+      "put": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEssayQuestionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/questions/matching-question/{id}": {
       "put": {
         "tags": [
@@ -1992,6 +2678,36 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Capstone.API"
+        ],
+        "parameters": [
+          {
+            "name": "PageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -2359,7 +3075,8 @@
         "enum": [
           0,
           1,
-          2
+          2,
+          3
         ],
         "type": "integer",
         "format": "int32"
@@ -2367,7 +3084,7 @@
       "AddActionRequest": {
         "type": "object",
         "properties": {
-          "actionType": {
+          "action": {
             "$ref": "#/components/schemas/ActionType"
           }
         },
@@ -2874,6 +3591,61 @@
         "type": "integer",
         "format": "int32"
       },
+      "ImportCsvEssayQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportCsvMultiChoiceQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportCsvSingleChoiceQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportCsvTrueFalseQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportMatchingQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "csv": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "JoinExamSessionFreeRequest": {
         "type": "object",
         "properties": {
@@ -2916,12 +3688,50 @@
         },
         "additionalProperties": false
       },
+      "MarkEssayQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessReportRequest": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "RefreshTokenRequest": {
         "type": "object",
         "properties": {
           "refreshToken": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateEssayQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "difficulty": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
